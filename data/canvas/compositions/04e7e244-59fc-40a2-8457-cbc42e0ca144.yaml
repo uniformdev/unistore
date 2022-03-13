@@ -1,0 +1,227 @@
+composition:
+  _id: 04e7e244-59fc-40a2-8457-cbc42e0ca144
+  type: page
+  _name: Home
+  _slug: /
+  slots:
+    content:
+      - type: $personalization
+        slots:
+          pz:
+            - type: hero
+              variant: fullWidth
+              parameters:
+                title:
+                  type: text
+                  value: Our launch special!
+                $pzCrit:
+                  type: $pzCrit
+                  value:
+                    crit:
+                      - l: launchSpecial
+                        r: 50
+                        op: '>='
+                subtitle:
+                  type: text
+                  value: special offer details here
+                backgroundImage:
+                  type: text
+                  value: >-
+                    https://images.unsplash.com/photo-1533230408708-8f9f91d1235a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80
+            - type: hero
+              variant: fullWidth
+              parameters:
+                title:
+                  type: text
+                  value: Complete your purchase now
+                $pzCrit:
+                  type: $pzCrit
+                  value:
+                    crit:
+                      - l: shoppingCartActive
+                        op: +
+                subtitle:
+                  type: text
+                  value: and receive free shipping
+                backgroundImage:
+                  type: text
+                  value: >-
+                    https://images.unsplash.com/photo-1524657049226-51f8180e28b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80
+            - type: hero
+              variant: ''
+              parameters:
+                title:
+                  type: text
+                  value: Hello, there!
+                subtitle:
+                  type: text
+                  value: and a subtitle to support the message
+                backgroundImage:
+                  type: text
+                  value: >-
+                    https://images.unsplash.com/photo-1524657049226-51f8180e28b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80
+        parameters:
+          trackingEventName:
+            type: text
+            value: Home hero
+      - type: callToAction
+        parameters:
+          text:
+            type: text
+            value: >-
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+              commodo sem nec erat porta viverra. Suspendisse aliquam sapien sed
+              velit posuere tempus.
+          title:
+            type: text
+            value: Why we are special
+          callToActionLink:
+            type: text
+            value: null
+          callToActionTitle:
+            type: text
+            value: null
+      - type: featuredProducts
+        parameters:
+          title:
+            type: text
+            value: For your kitchen
+          products:
+            type: bigcommerceProductQuery
+            value:
+              sort: date_modified
+              brand: ''
+              count: 8
+              keyword: ''
+              sortOrder: desc
+              categories:
+                - '21'
+          seeMoreUrl:
+            type: text
+            value: /shop/kitchen
+          seeMoreTitle:
+            type: text
+            value: See more kitchen products
+      - type: featuredProducts
+        parameters:
+          title:
+            type: text
+            value: For your garden
+          products:
+            type: bigcommerceProductQuery
+            value:
+              sort: date_modified
+              brand: ''
+              count: 8
+              keyword: ''
+              sortOrder: desc
+              categories:
+                - '19'
+      - type: callToAction
+        parameters:
+          text:
+            type: text
+            value: >-
+              Curabitur placerat, turpis non cursus rhoncus, tellus tortor
+              lobortis quam, vitae elementum nibh libero eget mi. Nunc sed
+              auctor sem, non scelerisque dui. 
+          title:
+            type: text
+            value: Another call to action
+      - type: container
+        slots:
+          left:
+            - type: callToAction
+              variant: mini
+              parameters:
+                text:
+                  type: text
+                  value: >-
+                    Curabitur placerat, turpis non cursus rhoncus, tellus tortor
+                    lobortis quam, vitae elementum nibh libero eget mi. Nunc sed
+                    auctor sem, non scelerisque dui.
+                title:
+                  type: text
+                  value: null
+                callToActionLink:
+                  type: text
+                  value: /shop-all
+                callToActionTitle:
+                  type: text
+                  value: See all products
+          right:
+            - type: featureItem
+              parameters:
+                icon:
+                  type: text
+                  value: >-
+                    https://images.ctfassets.net/k2fp7upx2p2q/4Vfsfd83ZwsYPEg3bqOTYR/97fe668ddd7bd3ef4e4178034be915e6/download-3_1.png
+                text:
+                  type: text
+                  value: >-
+                    Quisque sit amet turpis neque. Aenean cursus vulputate erat.
+                    Nullam sagittis est feugiat maximus sagittis. Fusce euismod
+                    id dui id auctor.
+            - type: featureItem
+              parameters:
+                icon:
+                  type: text
+                  value: >-
+                    https://images.ctfassets.net/k2fp7upx2p2q/C8DH02LVzIr3MBk0QplMq/d898b15fa86f56ff6305b30140934d82/download-4_1.png
+                text:
+                  type: text
+                  value: >-
+                    Quisque sit amet turpis neque. Aenean cursus vulputate erat.
+                    Nullam sagittis est feugiat maximus sagittis. Fusce euismod
+                    id dui id auctor.
+            - type: featureItem
+              parameters:
+                icon:
+                  type: text
+                  value: >-
+                    https://images.ctfassets.net/k2fp7upx2p2q/Z1eWhYnLfEbzbVYcoD4F0/28cf3f07b0d4874f4112fa77420c0851/download-5_1.png
+                text:
+                  type: text
+                  value: >-
+                    Quisque sit amet turpis neque. Aenean cursus vulputate erat.
+                    Nullam sagittis est feugiat maximus sagittis. Fusce euismod
+                    id dui id auctor.
+            - type: featureItem
+              parameters:
+                icon:
+                  type: text
+                  value: >-
+                    https://images.ctfassets.net/k2fp7upx2p2q/2NLUr7QNJSu21zLNwK28gW/9e3f6c087775a4a8592595312c72a7b7/download-1_1.png
+                text:
+                  type: text
+                  value: >-
+                    Quisque sit amet turpis neque. Aenean cursus vulputate erat.
+                    Nullam sagittis est feugiat maximus sagittis. Fusce euismod
+                    id dui id auctor.
+        variant: 13-23
+        parameters: {}
+      - type: featuredProducts
+        parameters:
+          title:
+            type: text
+            value: For your home
+          products:
+            type: bigcommerceProductQuery
+            value:
+              sort: date_modified
+              brand: ''
+              count: 8
+              keyword: ''
+              sortOrder: desc
+              categories:
+                - '22'
+  parameters:
+    pageMetaTitle:
+      type: text
+      value: 'Unistore: Home'
+    pageMetaDescription:
+      type: text
+      value: Uniform commerce starter kit
+created: '2022-01-23T19:56:15.639745+00:00'
+modified: '2022-03-11T02:06:52.361817+00:00'
+pattern: false

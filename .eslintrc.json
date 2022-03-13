@@ -1,0 +1,61 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2020": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["@typescript-eslint", "react", "prettier"],
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:@next/next/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "prettier"
+  ],
+  "rules": {
+    "react/button-has-type": "off",
+    "react/require-default-props": "off",
+    "react/no-danger": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "import/extensions": "off",
+    "react/prop-types": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "react/no-unescaped-entities": "off",
+    "import/no-cycle": [0, { "ignoreExternal": true }],
+    "prefer-const": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "no-use-before-define": "off",
+    "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
+    "import/no-unresolved": "off", // TODO - must be fixed properly
+    "import/no-extraneous-dependencies": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "ignorePatterns": ["node_modules", "/public", "/server", "lib", "utils", "typings"]
+}

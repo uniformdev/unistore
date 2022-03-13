@@ -1,0 +1,27 @@
+id: featuredProducts
+name: Featured Products
+icon: shopping-bag
+parameters:
+  - id: title
+    name: Title
+    type: text
+    typeConfig:
+      required: true
+  - id: seeMoreTitle
+    name: See More Title
+    type: text
+    typeConfig: null
+  - id: seeMoreUrl
+    name: See More Url
+    type: text
+    typeConfig: null
+  - id: products
+    name: Products
+    type: bigcommerceProductQuery
+    typeConfig:
+      required: true
+slots: []
+titleParameter: title
+canBeComposition: false
+created: '2022-01-23T19:56:14.440168+00:00'
+updated: '2022-01-23T19:56:14.440168+00:00'

@@ -1,0 +1,10 @@
+id: '1'
+name: Shopper Profile
+cap: 100
+values:
+  - id: '3'
+    value: First timer
+  - id: '2'
+    value: Regular
+  - id: '1'
+    value: Window Shopper

@@ -1,0 +1,31 @@
+composition:
+  _id: 9d58fb49-14ba-422d-b71c-4713611499ee
+  type: page
+  _name: Shop All
+  _slug: product-category-shop-all
+  slots:
+    content:
+      - type: productCatalog
+        parameters:
+          products:
+            type: bigcommerceProductQuery
+            value:
+              sort: price
+              brand: ''
+              count: 10
+              keyword: ''
+              sortOrder: asc
+              categories: []
+          showFilters:
+            type: checkbox
+            value: true
+          showSorting:
+            type: checkbox
+            value: true
+  parameters:
+    pageMetaTitle:
+      type: text
+      value: 'Unistore: Shop All Products'
+created: '2022-01-23T19:56:15.719168+00:00'
+modified: '2022-02-17T06:57:57.137158+00:00'
+pattern: false

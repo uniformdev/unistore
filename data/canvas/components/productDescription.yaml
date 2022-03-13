@@ -1,0 +1,14 @@
+id: productDescription
+name: Product Description
+icon: format-text
+parameters:
+  - id: title
+    name: Title
+    type: text
+    typeConfig:
+      required: true
+slots: []
+titleParameter: title
+canBeComposition: false
+created: '2022-01-23T19:56:14.341492+00:00'
+updated: '2022-01-23T19:56:14.341492+00:00'

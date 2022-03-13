@@ -1,0 +1,30 @@
+id: hero
+name: Hero
+icon: board
+parameters:
+  - id: title
+    name: Title
+    type: text
+    typeConfig:
+      required: true
+  - id: subtitle
+    name: Subtitle
+    type: text
+    typeConfig:
+      required: false
+  - id: backgroundImage
+    name: Background Image
+    type: text
+    typeConfig:
+      required: true
+      multiline: true
+slots: []
+titleParameter: title
+canBeComposition: false
+created: '2022-01-23T19:56:14.392763+00:00'
+updated: '2022-01-23T19:56:14.392763+00:00'
+variants:
+  - id: fullWidth
+    name: Full Width
+  - id: imageRight
+    name: Image Right

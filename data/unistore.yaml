@@ -1,0 +1,741 @@
+components:
+  - id: callToAction
+    name: Call to Action
+    icon: phone
+    parameters:
+      - id: title
+        name: Title
+        type: text
+        typeConfig:
+          required: false
+      - id: text
+        name: Text
+        type: text
+        typeConfig:
+          required: true
+          multiline: true
+          linesCount: '10'
+      - id: callToActionTitle
+        name: Call to Action Title
+        type: text
+        typeConfig: null
+      - id: callToActionLink
+        name: Call to Action Link
+        type: text
+        typeConfig: null
+    slots: []
+    titleParameter: title
+    canBeComposition: false
+    created: '2022-01-23T19:56:14.439314+00:00'
+    updated: '2022-01-23T19:56:14.439314+00:00'
+    variants:
+      - id: mini
+        name: Mini
+      - id: fullWidth
+        name: Full Width
+      - id: basic
+        name: Basic
+  - id: contactForm
+    name: Contact Form
+    icon: smartphone-shake
+    parameters:
+      - id: submitButtonText
+        name: Submit Button Text
+        type: text
+        typeConfig:
+          required: true
+      - id: successfulSubmitText
+        name: Successful Submit Text
+        type: text
+        typeConfig:
+          required: true
+      - id: errorSubmitText
+        name: Error Submit Text
+        type: text
+        typeConfig:
+          required: true
+    slots: []
+    titleParameter: ''
+    canBeComposition: false
+    created: '2022-01-23T19:56:13.794043+00:00'
+    updated: '2022-01-23T19:56:13.794043+00:00'
+  - id: container
+    name: Container
+    icon: folder
+    parameters: []
+    slots:
+      - id: left
+        name: Left
+        allowedComponents:
+          - featureItem
+          - callToAction
+          - productDescription
+          - productImageGallery
+          - productInfo
+        inheritAllowedComponents: false
+      - id: right
+        name: Right
+        allowedComponents:
+          - featureItem
+          - callToAction
+          - contactForm
+          - productDescription
+          - productImageGallery
+          - productInfo
+        inheritAllowedComponents: false
+    titleParameter: ''
+    canBeComposition: false
+    created: '2022-01-23T19:56:14.486063+00:00'
+    updated: '2022-01-23T19:56:14.486063+00:00'
+    variants:
+      - id: productDetail
+        name: Product Detail
+      - id: 13-23
+        name: 1/3 - 2/3
+      - id: 23-13
+        name: 2/3-1/3
+      - id: equalHalf
+        name: Equal Half
+  - id: currentCategoryProductList
+    name: Current Category Product List
+    icon: feed
+    parameters:
+      - id: showFilters
+        name: Show Filters
+        type: checkbox
+        typeConfig: null
+      - id: showSorting
+        name: Show Sorting
+        type: checkbox
+        typeConfig: null
+      - id: displayLimit
+        name: Display Limit
+        type: number
+        typeConfig:
+          max: '100'
+          min: '4'
+    slots: []
+    titleParameter: ''
+    canBeComposition: false
+    created: '2022-01-23T19:56:14.545417+00:00'
+    updated: '2022-01-23T19:56:14.545417+00:00'
+  - id: featuredProducts
+    name: Featured Products
+    icon: shopping-bag
+    parameters:
+      - id: title
+        name: Title
+        type: text
+        typeConfig:
+          required: true
+      - id: seeMoreTitle
+        name: See More Title
+        type: text
+        typeConfig: null
+      - id: seeMoreUrl
+        name: See More Url
+        type: text
+        typeConfig: null
+      - id: products
+        name: Products
+        type: bigcommerceProductQuery
+        typeConfig:
+          required: true
+    slots: []
+    titleParameter: title
+    canBeComposition: false
+    created: '2022-01-23T19:56:14.440168+00:00'
+    updated: '2022-01-23T19:56:14.440168+00:00'
+  - id: featureItem
+    name: Feature Item
+    icon: danger
+    parameters:
+      - id: icon
+        name: Icon
+        type: text
+        typeConfig:
+          required: true
+          multiline: true
+      - id: text
+        name: Text
+        type: text
+        typeConfig:
+          required: true
+          multiline: true
+    slots: []
+    titleParameter: text
+    canBeComposition: false
+    created: '2022-01-23T19:56:14.453174+00:00'
+    updated: '2022-01-23T19:56:14.453174+00:00'
+  - id: hero
+    name: Hero
+    icon: board
+    parameters:
+      - id: title
+        name: Title
+        type: text
+        typeConfig:
+          required: true
+      - id: subtitle
+        name: Subtitle
+        type: text
+        typeConfig:
+          required: false
+      - id: backgroundImage
+        name: Background Image
+        type: text
+        typeConfig:
+          required: true
+          multiline: true
+    slots: []
+    titleParameter: title
+    canBeComposition: false
+    created: '2022-01-23T19:56:14.392763+00:00'
+    updated: '2022-01-23T19:56:14.392763+00:00'
+    variants:
+      - id: fullWidth
+        name: Full Width
+      - id: imageRight
+        name: Image Right
+  - id: page
+    name: Page
+    icon: file-document
+    parameters:
+      - id: pageMetaTitle
+        name: Page Meta Title
+        type: text
+        typeConfig:
+          required: true
+      - id: pageMetaDescription
+        name: Page Meta Description
+        type: text
+        typeConfig:
+          required: false
+          multiline: true
+      - id: showInHeaderNav
+        name: Show in Header Nav
+        type: checkbox
+        typeConfig: null
+      - id: showInFooterNav
+        name: Show in Footer Nav
+        type: checkbox
+        typeConfig: null
+    slots:
+      - id: content
+        name: Content
+        allowedComponents:
+          - hero
+          - callToAction
+          - container
+          - featuredProducts
+          - productCatalog
+          - currentCategoryProductList
+          - productImageGallery
+          - productInfo
+          - productDescription
+          - relatedProducts
+          - $personalization
+          - $test
+          - $localization
+        inheritAllowedComponents: false
+    titleParameter: pageMetaTitle
+    canBeComposition: true
+    created: '2022-01-23T19:56:14.428264+00:00'
+    updated: '2022-03-11T02:09:16.785579+00:00'
+  - id: productCatalog
+    name: Product Catalog
+    icon: browse
+    parameters:
+      - id: showFilters
+        name: Show Filters
+        type: checkbox
+        typeConfig: null
+      - id: showSorting
+        name: Show Sorting
+        type: checkbox
+        typeConfig: null
+      - id: products
+        name: Products
+        type: bigcommerceProductQuery
+        typeConfig:
+          required: true
+    slots: []
+    titleParameter: ''
+    canBeComposition: false
+    created: '2022-01-23T19:56:14.060687+00:00'
+    updated: '2022-01-23T19:56:14.060687+00:00'
+  - id: productDescription
+    name: Product Description
+    icon: format-text
+    parameters:
+      - id: title
+        name: Title
+        type: text
+        typeConfig:
+          required: true
+    slots: []
+    titleParameter: title
+    canBeComposition: false
+    created: '2022-01-23T19:56:14.341492+00:00'
+    updated: '2022-01-23T19:56:14.341492+00:00'
+  - id: productImageGallery
+    name: Product Image Gallery
+    icon: image
+    parameters: []
+    slots: []
+    titleParameter: ''
+    canBeComposition: false
+    created: '2022-01-23T19:56:14.583405+00:00'
+    updated: '2022-01-23T19:56:14.583405+00:00'
+  - id: productInfo
+    name: Product Info
+    icon: info
+    parameters: []
+    slots: []
+    titleParameter: ''
+    canBeComposition: false
+    created: '2022-01-23T19:56:14.649488+00:00'
+    updated: '2022-01-23T19:56:14.649488+00:00'
+  - id: relatedProducts
+    name: Related Products
+    icon: arrows-breake-h
+    parameters:
+      - id: title
+        name: Title
+        type: text
+        typeConfig:
+          required: true
+    slots: []
+    titleParameter: title
+    canBeComposition: false
+    created: '2022-01-23T19:56:14.675267+00:00'
+    updated: '2022-01-23T19:56:14.675267+00:00'
+compositions:
+  - composition:
+      _id: 04e7e244-59fc-40a2-8457-cbc42e0ca144
+      type: page
+      _name: Home
+      _slug: /
+      slots:
+        content:
+          - type: $personalization
+            slots:
+              pz:
+                - type: hero
+                  variant: fullWidth
+                  parameters:
+                    title:
+                      type: text
+                      value: Our launch special!
+                    $pzCrit:
+                      type: $pzCrit
+                      value:
+                        crit:
+                          - l: launchSpecial
+                            r: 50
+                            op: '>='
+                    subtitle:
+                      type: text
+                      value: special offer details here
+                    backgroundImage:
+                      type: text
+                      value: >-
+                        https://images.unsplash.com/photo-1533230408708-8f9f91d1235a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80
+                - type: hero
+                  variant: fullWidth
+                  parameters:
+                    title:
+                      type: text
+                      value: Complete your purchase now
+                    $pzCrit:
+                      type: $pzCrit
+                      value:
+                        crit:
+                          - l: shoppingCartActive
+                            op: +
+                    subtitle:
+                      type: text
+                      value: and receive free shipping
+                    backgroundImage:
+                      type: text
+                      value: >-
+                        https://images.unsplash.com/photo-1524657049226-51f8180e28b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80
+                - type: hero
+                  variant: ''
+                  parameters:
+                    title:
+                      type: text
+                      value: Hello, there!
+                    subtitle:
+                      type: text
+                      value: and a subtitle to support the message
+                    backgroundImage:
+                      type: text
+                      value: >-
+                        https://images.unsplash.com/photo-1524657049226-51f8180e28b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80
+            parameters:
+              trackingEventName:
+                type: text
+                value: Home hero
+          - type: callToAction
+            parameters:
+              text:
+                type: text
+                value: >-
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                  commodo sem nec erat porta viverra. Suspendisse aliquam sapien
+                  sed velit posuere tempus.
+              title:
+                type: text
+                value: Why we are special
+              callToActionLink:
+                type: text
+                value: null
+              callToActionTitle:
+                type: text
+                value: null
+          - type: featuredProducts
+            parameters:
+              title:
+                type: text
+                value: For your kitchen
+              products:
+                type: bigcommerceProductQuery
+                value:
+                  sort: date_modified
+                  brand: ''
+                  count: 8
+                  keyword: ''
+                  sortOrder: desc
+                  categories:
+                    - '21'
+              seeMoreUrl:
+                type: text
+                value: /shop/kitchen
+              seeMoreTitle:
+                type: text
+                value: See more kitchen products
+          - type: featuredProducts
+            parameters:
+              title:
+                type: text
+                value: For your garden
+              products:
+                type: bigcommerceProductQuery
+                value:
+                  sort: date_modified
+                  brand: ''
+                  count: 8
+                  keyword: ''
+                  sortOrder: desc
+                  categories:
+                    - '19'
+          - type: callToAction
+            parameters:
+              text:
+                type: text
+                value: >-
+                  Curabitur placerat, turpis non cursus rhoncus, tellus tortor
+                  lobortis quam, vitae elementum nibh libero eget mi. Nunc sed
+                  auctor sem, non scelerisque dui. 
+              title:
+                type: text
+                value: Another call to action
+          - type: container
+            slots:
+              left:
+                - type: callToAction
+                  variant: mini
+                  parameters:
+                    text:
+                      type: text
+                      value: >-
+                        Curabitur placerat, turpis non cursus rhoncus, tellus
+                        tortor lobortis quam, vitae elementum nibh libero eget
+                        mi. Nunc sed auctor sem, non scelerisque dui.
+                    title:
+                      type: text
+                      value: null
+                    callToActionLink:
+                      type: text
+                      value: /shop-all
+                    callToActionTitle:
+                      type: text
+                      value: See all products
+              right:
+                - type: featureItem
+                  parameters:
+                    icon:
+                      type: text
+                      value: >-
+                        https://images.ctfassets.net/k2fp7upx2p2q/4Vfsfd83ZwsYPEg3bqOTYR/97fe668ddd7bd3ef4e4178034be915e6/download-3_1.png
+                    text:
+                      type: text
+                      value: >-
+                        Quisque sit amet turpis neque. Aenean cursus vulputate
+                        erat. Nullam sagittis est feugiat maximus sagittis.
+                        Fusce euismod id dui id auctor.
+                - type: featureItem
+                  parameters:
+                    icon:
+                      type: text
+                      value: >-
+                        https://images.ctfassets.net/k2fp7upx2p2q/C8DH02LVzIr3MBk0QplMq/d898b15fa86f56ff6305b30140934d82/download-4_1.png
+                    text:
+                      type: text
+                      value: >-
+                        Quisque sit amet turpis neque. Aenean cursus vulputate
+                        erat. Nullam sagittis est feugiat maximus sagittis.
+                        Fusce euismod id dui id auctor.
+                - type: featureItem
+                  parameters:
+                    icon:
+                      type: text
+                      value: >-
+                        https://images.ctfassets.net/k2fp7upx2p2q/Z1eWhYnLfEbzbVYcoD4F0/28cf3f07b0d4874f4112fa77420c0851/download-5_1.png
+                    text:
+                      type: text
+                      value: >-
+                        Quisque sit amet turpis neque. Aenean cursus vulputate
+                        erat. Nullam sagittis est feugiat maximus sagittis.
+                        Fusce euismod id dui id auctor.
+                - type: featureItem
+                  parameters:
+                    icon:
+                      type: text
+                      value: >-
+                        https://images.ctfassets.net/k2fp7upx2p2q/2NLUr7QNJSu21zLNwK28gW/9e3f6c087775a4a8592595312c72a7b7/download-1_1.png
+                    text:
+                      type: text
+                      value: >-
+                        Quisque sit amet turpis neque. Aenean cursus vulputate
+                        erat. Nullam sagittis est feugiat maximus sagittis.
+                        Fusce euismod id dui id auctor.
+            variant: 13-23
+            parameters: {}
+          - type: featuredProducts
+            parameters:
+              title:
+                type: text
+                value: For your home
+              products:
+                type: bigcommerceProductQuery
+                value:
+                  sort: date_modified
+                  brand: ''
+                  count: 8
+                  keyword: ''
+                  sortOrder: desc
+                  categories:
+                    - '22'
+      parameters:
+        pageMetaTitle:
+          type: text
+          value: 'Unistore: Home'
+        pageMetaDescription:
+          type: text
+          value: Uniform commerce starter kit
+    created: '2022-01-23T19:56:15.639745+00:00'
+    modified: '2022-03-11T02:06:52.361817+00:00'
+    pattern: false
+  - composition:
+      _id: 38f6866b-80e4-4fee-b1c9-520fbc83980e
+      type: page
+      _name: Contact Us
+      _slug: contact
+      slots:
+        content:
+          - type: container
+            slots:
+              left:
+                - type: callToAction
+                  variant: mini
+                  parameters:
+                    text:
+                      type: text
+                      value: >-
+                        Quisque sit amet turpis neque. Aenean cursus vulputate
+                        erat. Nullam sagittis est feugiat maximus sagittis.
+                        Fusce euismod id dui id auctor.
+                    title:
+                      type: text
+                      value: How to reach us
+                    callToActionLink:
+                      type: text
+                      value: tel:+141512345678
+                    callToActionTitle:
+                      type: text
+                      value: Call our support
+              right:
+                - type: contactForm
+                  parameters:
+                    errorSubmitText:
+                      type: text
+                      value: Sorry, there was an error submitting the form.
+                    submitButtonText:
+                      type: text
+                      value: Submit
+                    successfulSubmitText:
+                      type: text
+                      value: Thanks, we will reach back to you shortly!
+            variant: 13-23
+            parameters: {}
+      parameters:
+        pageMetaTitle:
+          type: text
+          value: 'Unistore: Contact Us'
+        showInFooterNav:
+          type: checkbox
+          value: true
+        showInHeaderNav:
+          type: checkbox
+          value: true
+    created: '2022-01-23T19:56:15.686562+00:00'
+    modified: '2022-02-17T06:54:31.111029+00:00'
+    pattern: false
+  - composition:
+      _id: 75f2e086-0dec-48da-b44b-d724eeed7bae
+      type: page
+      _name: Product Detail
+      _slug: product-detail
+      slots:
+        content:
+          - type: container
+            slots:
+              left:
+                - type: productImageGallery
+                  parameters: {}
+              right:
+                - type: productInfo
+                  parameters: {}
+            variant: productDetail
+            parameters: {}
+          - type: productDescription
+            parameters:
+              title:
+                type: text
+                value: About this product
+          - type: relatedProducts
+            parameters:
+              title:
+                type: text
+                value: Explore related products
+      parameters:
+        pageMetaTitle:
+          type: text
+          value: 'Unistore: Product Detail'
+    created: '2022-01-23T19:56:15.623086+00:00'
+    modified: '2022-01-23T19:56:15.623086+00:00'
+    pattern: false
+  - composition:
+      _id: 9d58fb49-14ba-422d-b71c-4713611499ee
+      type: page
+      _name: Shop All
+      _slug: product-category-shop-all
+      slots:
+        content:
+          - type: productCatalog
+            parameters:
+              products:
+                type: bigcommerceProductQuery
+                value:
+                  sort: price
+                  brand: ''
+                  count: 10
+                  keyword: ''
+                  sortOrder: asc
+                  categories: []
+              showFilters:
+                type: checkbox
+                value: true
+              showSorting:
+                type: checkbox
+                value: true
+      parameters:
+        pageMetaTitle:
+          type: text
+          value: 'Unistore: Shop All Products'
+    created: '2022-01-23T19:56:15.719168+00:00'
+    modified: '2022-02-17T06:57:57.137158+00:00'
+    pattern: false
+  - composition:
+      _id: e0cb3dbf-fce9-4cbf-86e5-77aad1b589c9
+      type: page
+      _name: Product Category
+      _slug: product-category
+      slots:
+        content:
+          - type: callToAction
+            variant: fullWidth
+            parameters:
+              text:
+                type: text
+                value: >-
+                  Quisque sit amet turpis neque. Aenean cursus vulputate erat.
+                  Nullam sagittis est feugiat maximus sagittis. Fusce euismod id
+                  dui id auctor.
+              title:
+                type: text
+                value: Catchy title about these products
+          - type: currentCategoryProductList
+            parameters:
+              showFilters:
+                type: checkbox
+                value: true
+              showSorting:
+                type: checkbox
+                value: true
+              displayLimit:
+                type: number
+                value: '10'
+      parameters:
+        pageMetaTitle:
+          type: text
+          value: 'Unistore: Product Category Page'
+    created: '2022-01-23T19:56:15.742041+00:00'
+    modified: '2022-03-10T23:32:09.854334+00:00'
+    pattern: false
+signals:
+  - id: launchSpecial
+    name: Launch Special
+    cap: 100
+    crit:
+      op: '&'
+      type: G
+      clauses:
+        - type: QS
+          match:
+            cs: false
+            op: '='
+            rhs: launch
+          queryName: utm_campaign
+    dur: p
+    description: ''
+    str: 50
+  - id: shoppingCartActive
+    name: Shopping Cart Active
+    cap: 100
+    crit:
+      op: '&'
+      type: G
+      clauses:
+        - type: CK
+          match:
+            cs: false
+            op: '*'
+            rhs: ''
+          cookieName: cartSize
+    dur: p
+    description: ''
+    str: 50
+enrichments:
+  - id: '1'
+    name: Shopper Profile
+    cap: 100
+    values:
+      - id: '3'
+        value: First timer
+      - id: '2'
+        value: Regular
+      - id: '1'
+        value: Window Shopper

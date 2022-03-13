@@ -1,0 +1,21 @@
+id: featureItem
+name: Feature Item
+icon: danger
+parameters:
+  - id: icon
+    name: Icon
+    type: text
+    typeConfig:
+      required: true
+      multiline: true
+  - id: text
+    name: Text
+    type: text
+    typeConfig:
+      required: true
+      multiline: true
+slots: []
+titleParameter: text
+canBeComposition: false
+created: '2022-01-23T19:56:14.453174+00:00'
+updated: '2022-01-23T19:56:14.453174+00:00'

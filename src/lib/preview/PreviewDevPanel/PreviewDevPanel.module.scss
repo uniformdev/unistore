@@ -1,0 +1,11 @@
+.panel {
+  position: sticky;
+  display: flex;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px;
+}
+
+.panel > div {
+  margin: 5px;
+}

@@ -1,0 +1,9 @@
+id: productImageGallery
+name: Product Image Gallery
+icon: image
+parameters: []
+slots: []
+titleParameter: ''
+canBeComposition: false
+created: '2022-01-23T19:56:14.583405+00:00'
+updated: '2022-01-23T19:56:14.583405+00:00'

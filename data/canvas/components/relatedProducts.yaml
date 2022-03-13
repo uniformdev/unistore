@@ -1,0 +1,14 @@
+id: relatedProducts
+name: Related Products
+icon: arrows-breake-h
+parameters:
+  - id: title
+    name: Title
+    type: text
+    typeConfig:
+      required: true
+slots: []
+titleParameter: title
+canBeComposition: false
+created: '2022-01-23T19:56:14.675267+00:00'
+updated: '2022-01-23T19:56:14.675267+00:00'

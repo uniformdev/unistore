@@ -1,0 +1,45 @@
+id: page
+name: Page
+icon: file-document
+parameters:
+  - id: pageMetaTitle
+    name: Page Meta Title
+    type: text
+    typeConfig:
+      required: true
+  - id: pageMetaDescription
+    name: Page Meta Description
+    type: text
+    typeConfig:
+      required: false
+      multiline: true
+  - id: showInHeaderNav
+    name: Show in Header Nav
+    type: checkbox
+    typeConfig: null
+  - id: showInFooterNav
+    name: Show in Footer Nav
+    type: checkbox
+    typeConfig: null
+slots:
+  - id: content
+    name: Content
+    allowedComponents:
+      - hero
+      - callToAction
+      - container
+      - featuredProducts
+      - productCatalog
+      - currentCategoryProductList
+      - productImageGallery
+      - productInfo
+      - productDescription
+      - relatedProducts
+      - $personalization
+      - $test
+      - $localization
+    inheritAllowedComponents: false
+titleParameter: pageMetaTitle
+canBeComposition: true
+created: '2022-01-23T19:56:14.428264+00:00'
+updated: '2022-03-11T02:09:16.785579+00:00'

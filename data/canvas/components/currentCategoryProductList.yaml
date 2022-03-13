@@ -1,0 +1,23 @@
+id: currentCategoryProductList
+name: Current Category Product List
+icon: feed
+parameters:
+  - id: showFilters
+    name: Show Filters
+    type: checkbox
+    typeConfig: null
+  - id: showSorting
+    name: Show Sorting
+    type: checkbox
+    typeConfig: null
+  - id: displayLimit
+    name: Display Limit
+    type: number
+    typeConfig:
+      max: '100'
+      min: '4'
+slots: []
+titleParameter: ''
+canBeComposition: false
+created: '2022-01-23T19:56:14.545417+00:00'
+updated: '2022-01-23T19:56:14.545417+00:00'

@@ -1,0 +1,34 @@
+composition:
+  _id: 75f2e086-0dec-48da-b44b-d724eeed7bae
+  type: page
+  _name: Product Detail
+  _slug: product-detail
+  slots:
+    content:
+      - type: container
+        slots:
+          left:
+            - type: productImageGallery
+              parameters: {}
+          right:
+            - type: productInfo
+              parameters: {}
+        variant: productDetail
+        parameters: {}
+      - type: productDescription
+        parameters:
+          title:
+            type: text
+            value: About this product
+      - type: relatedProducts
+        parameters:
+          title:
+            type: text
+            value: Explore related products
+  parameters:
+    pageMetaTitle:
+      type: text
+      value: 'Unistore: Product Detail'
+created: '2022-01-23T19:56:15.623086+00:00'
+modified: '2022-01-23T19:56:15.623086+00:00'
+pattern: false

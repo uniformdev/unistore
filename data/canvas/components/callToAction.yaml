@@ -1,0 +1,36 @@
+id: callToAction
+name: Call to Action
+icon: phone
+parameters:
+  - id: title
+    name: Title
+    type: text
+    typeConfig:
+      required: false
+  - id: text
+    name: Text
+    type: text
+    typeConfig:
+      required: true
+      multiline: true
+      linesCount: '10'
+  - id: callToActionTitle
+    name: Call to Action Title
+    type: text
+    typeConfig: null
+  - id: callToActionLink
+    name: Call to Action Link
+    type: text
+    typeConfig: null
+slots: []
+titleParameter: title
+canBeComposition: false
+created: '2022-01-23T19:56:14.439314+00:00'
+updated: '2022-01-23T19:56:14.439314+00:00'
+variants:
+  - id: mini
+    name: Mini
+  - id: fullWidth
+    name: Full Width
+  - id: basic
+    name: Basic
