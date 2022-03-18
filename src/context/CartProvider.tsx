@@ -75,6 +75,11 @@ export const CartContextProvider: React.FC = ({ children }) => {
       },
     });
 
+    if (response.status === 404) {
+      // no cart ID yet; nothing added
+      return;
+    }
+
     const json: GetCartResponse = await response.json();
 
     setGetCartResponse(json);

@@ -1,5 +1,6 @@
 const path = require('path');
 const createNextPluginPreval = require('next-plugin-preval/config');
+
 const withNextPluginPreval = createNextPluginPreval();
 
 const config = {
