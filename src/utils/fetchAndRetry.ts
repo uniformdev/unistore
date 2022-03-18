@@ -1,14 +1,9 @@
-export async function fetchAndRetry(callAPIFn: any): Promise<any> {
-  try {
-    const response = await callAPIFn();
-    return response;
-  } catch (e) {
-    console.log('Reached API throttling... sleeping');
-    await sleep(3000);
-    return fetchAndRetry(callAPIFn);
-  }
-}
+import pRetry from 'p-retry';
+import pLimit from 'p-limit';
 
-function sleep(milliseconds: number) {
-  return new Promise(resolve => setTimeout(resolve, milliseconds));
+const limit = pLimit(4);
+
+export async function fetchAndRetry<T>(callAPIFn: () => Promise<T>): Promise<T> {
+  const response = limit(() => pRetry(callAPIFn));
+  return response;
 }

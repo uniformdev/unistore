@@ -1,6 +1,5 @@
 import preval from 'next-plugin-preval';
 import { fetchAndRetry } from '@/utils/fetchAndRetry';
-//import { ProductResult } from '@uniformdev/canvas-bigcommerce';
 import { bigCommerceClient } from '@/utils/bigCommerce';
 import { bigCommerceConfig } from '@/utils/bigCommerce/constants';
 

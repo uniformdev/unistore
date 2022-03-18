@@ -13,6 +13,7 @@ async function getCategories(): Promise<any> {
 
 async function fetchCategories() {
   const url = `${bigCommerceRootUrl}catalog/categories?limit=${bigCommerceConfig.apiCategoryLimit}`;
+  // eslint-disable-next-line @typescript-eslint/no-shadow
   const getCategories = await fetch(url, {
     headers: bigCommerceRequestHeaders,
   });

@@ -1,6 +1,6 @@
 import preval from 'next-plugin-preval';
-import { fetchAndRetry } from '@/utils/fetchAndRetry';
 import { ProductResult } from '@uniformdev/canvas-bigcommerce';
+import { fetchAndRetry } from '@/utils/fetchAndRetry';
 import { bigCommerceClient } from '@/utils/bigCommerce';
 
 async function getProductDetails(): Promise<any> {
@@ -11,7 +11,8 @@ async function getProductDetails(): Promise<any> {
   if (!products) {
     return null;
   }
-  return products.reduce((productsById: Array<ProductResult>, product: ProductResult) => {
+  return products.reduce<Record<string, ProductResult>>((productsById, product) => {
+    // eslint-disable-next-line no-param-reassign
     productsById[product.id!] = product;
     return productsById;
   }, {});

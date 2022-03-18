@@ -11,6 +11,7 @@ async function getBrands(): Promise<any> {
 }
 
 async function fetchBrands() {
+  // eslint-disable-next-line @typescript-eslint/no-shadow
   const getBrands = await fetch(`${bigCommerceRootUrl}catalog/brands?limit=${bigCommerceConfig.apiBrandLimit}`, {
     headers: bigCommerceRequestHeaders,
   });
