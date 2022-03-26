@@ -145,7 +145,7 @@ composition:
                   value: null
                 callToActionLink:
                   type: text
-                  value: /shop-all
+                  value: /shop/shop-all
                 callToActionTitle:
                   type: text
                   value: See all products
