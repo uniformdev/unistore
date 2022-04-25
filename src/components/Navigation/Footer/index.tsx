@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
+import { ToggleEmbeddedContextDevTools } from '@uniformdev/context-devtools';
 import FooterLogo, { LogoPosition } from '@/components/Navigation/components/Logo';
 import FooterNav from '../components/FooterNav';
-import { ToggleEmbeddedContextDevTools } from '@uniformdev/context-devtools';
+
 import getConfig from 'next/config';
 const { serverRuntimeConfig } = getConfig();
 const { projectId, apiKey, apiHost } = serverRuntimeConfig;
