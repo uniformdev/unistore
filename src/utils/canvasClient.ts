@@ -4,12 +4,12 @@ import { bigCommerceEnhancer, createCategoriesBrandsEnhancers } from '@/utils/en
 import getConfig from 'next/config';
 
 const {
-  serverRuntimeConfig: { apiKey, canvasApiHost, projectId },
+  serverRuntimeConfig: { apiKey, apiHost, projectId },
 } = getConfig();
 
 export const canvasClient = new CanvasClient({
   apiKey: apiKey,
-  apiHost: canvasApiHost,
+  apiHost: apiHost,
   projectId: projectId,
 });
 
