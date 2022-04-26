@@ -22,7 +22,7 @@ const config = {
     bcCategoryLimit: process.env.BIGCOMMERCE_CATEGORIES_LIMIT || 4,
     projectId: process.env.UNIFORM_PROJECT_ID,
     apiKey: process.env.UNIFORM_API_KEY,
-    canvasApiHost: process.env.UNIFORM_CLI_BASE_URL || 'https://uniform.app',
+    apiHost: process.env.UNIFORM_CLI_BASE_URL || 'https://uniform.app',
     previewSecret: process.env.UNIFORM_PREVIEW_SECRET || 'unistore',
   },
 };
