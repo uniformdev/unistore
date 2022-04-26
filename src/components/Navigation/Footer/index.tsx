@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
+import getConfig from 'next/config';
 import { ToggleEmbeddedContextDevTools } from '@uniformdev/context-devtools';
 import FooterLogo, { LogoPosition } from '@/components/Navigation/components/Logo';
 import FooterNav from '../components/FooterNav';
 
-import getConfig from 'next/config';
 const { serverRuntimeConfig } = getConfig();
 const { projectId, apiKey, apiHost } = serverRuntimeConfig;
 
@@ -34,9 +34,9 @@ const Footer = () => (
     </div>
     <ToggleEmbeddedContextDevTools
       initialSettings={{
-        apiHost: apiHost,
-        apiKey: apiKey,
-        projectId: projectId,
+        apiHost,
+        apiKey,
+        projectId,
       }}
     />
   </footer>
