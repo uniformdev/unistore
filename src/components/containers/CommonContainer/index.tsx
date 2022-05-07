@@ -21,7 +21,7 @@ const CommonContainer = ({
   <>
     <Navbar topNavCategoryLinks={topNavCategoryLinks} />
     {composition ? (
-      <Composition data={composition} behaviorTracking="onLoad">
+      <Composition behaviorTracking="onLoad" data={composition}>
         <div className="body_container">
           <Slot name="content" resolveRenderer={componentResolver} />
         </div>

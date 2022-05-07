@@ -6,12 +6,19 @@ import Cross from '../../../public/img/cross.svg';
 import { CartLineItem } from '@/typings/cartTypes';
 import { buildProductDetailLink } from '@/utils/linkUtils';
 
-export type ShoppingItemProps = {
+interface ShoppingItemProps extends CartLineItem {
   onRemove(): void;
-} & CartLineItem;
+}
 
-const ShoppingItem = ({ image_url: imageUrl, name, sku, onRemove, product_id: productId }: ShoppingItemProps) => {
+const ShoppingCartProduct: React.FC<ShoppingItemProps> = ({
+  image_url: imageUrl,
+  name,
+  sku,
+  onRemove,
+  product_id: productId,
+}) => {
   const linkProps = buildProductDetailLink({ id: productId ?? '', productName: name });
+
   return (
     <div className="flex lg:flex-row flex-col py-4 lg:py-10 font-overpass">
       <div className="relative p-2 border lg:w-40 w-24 h-24 lg:h-40 cursor-pointer">
@@ -42,4 +49,4 @@ const ShoppingItem = ({ image_url: imageUrl, name, sku, onRemove, product_id: pr
   );
 };
 
-export default ShoppingItem;
+export default ShoppingCartProduct;

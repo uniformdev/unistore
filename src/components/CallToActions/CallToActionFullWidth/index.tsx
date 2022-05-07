@@ -11,7 +11,9 @@ const CallToActionFullWidth = ({ title, text, callToActionTitle, callToActionLin
     )}
     <p className="dark:text-white font - overpass md:text-center font-bold text-xl leading-7 text-black mt-2">{text}</p>
     {callToActionTitle && callToActionLink && (
-      <LinkButton text={callToActionTitle} href={callToActionLink} className="mt-8 px-4" />
+      <div className="grid place-items-center">
+        <LinkButton text={callToActionTitle} href={callToActionLink} className="mt-8 px-12" />
+      </div>
     )}
   </div>
 );

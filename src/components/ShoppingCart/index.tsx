@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { NextPage } from 'next';
 import { useTheme } from 'next-themes';
 import { useCartContext } from '@/context/CartProvider';
-import ShoppingItem from '@/components/ShoppingItem';
 import CurrencyFormatter from '@/components/CurrencyFormatter';
 import ActionButton from '@/components/atoms/ActionButton';
 import EmptyContent from '@/atoms/EmptyContent';
+import ShoppingCartItem from './ShoppingCartItem';
 import { Themes } from '@/utils/navUtils';
 
 const ShoppingCart: NextPage = () => {
-  const { cart, currency, remove, add } = useCartContext();
+  const { cart, currency } = useCartContext();
   const { forcedTheme } = useTheme();
-  const { numberItems, lineItems, cartAmount, redirectUrls } = cart || { numberItems: 0 };
-  const [products, setProducts] = useState(lineItems?.physical_items ?? []);
-  useEffect(() => {
-    setProducts(lineItems?.physical_items ?? []);
-  }, [lineItems?.physical_items]);
+  const { numberItems, lineItems, cartAmount, redirectUrls } = cart || {};
+  const products = lineItems?.physical_items ?? [];
+
   return (
     <div className="body_container">
       {products.length ? (
@@ -33,20 +31,8 @@ const ShoppingCart: NextPage = () => {
                   <span>Price</span>
                 </td>
               </tr>
-              {products.map((product, index) => (
-                <tr key={`Shopping_item-${index % 2}`} className="border-b">
-                  <td colSpan={3}>
-                    <ShoppingItem {...product} onRemove={() => remove(product.id)} />
-                  </td>
-                  <td className="dark:text-white lg:pt-10 lg:align-text-top">
-                    <button type="button" onClick={() => add(product.product_id, product.variant_id)}>
-                      <span>{product.quantity}&nbsp;&nbsp;+</span>
-                    </button>
-                  </td>
-                  <td className="lg:pt-10 lg:align-text-top lg:text-left text-right">
-                    <CurrencyFormatter currency={currency.code} amount={product.list_price} />
-                  </td>
-                </tr>
+              {products.map(product => (
+                <ShoppingCartItem key={product.id} product={product} />
               ))}
             </tbody>
           </table>
@@ -58,7 +44,7 @@ const ShoppingCart: NextPage = () => {
               </span>
             </div>
             <div className="flex flex-row justify-end">
-              {numberItems > 0 && (
+              {Boolean(numberItems) && (
                 <form action={redirectUrls?.checkout_url} method="post" encType="multipart/form-data" target="_blank">
                   <ActionButton
                     type="submit"
