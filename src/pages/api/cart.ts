@@ -123,9 +123,12 @@ const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
     headers: bigCommerceRequestHeaders,
   });
 
-  const json = await response.json();
-
-  res.status(response.status).json(json);
+  try {
+    const json = await response.json();
+    res.status(response.status).json(json);
+  } catch (error) {
+    console.log('cart is empty');
+  }
 };
 
 const handlePost = async (req: NextApiRequest, res: NextApiResponse) => {
