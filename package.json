@@ -63,7 +63,6 @@
     "@uniformdev/context": "16.0.0",
     "@uniformdev/context-devtools": "16.0.0",
     "@uniformdev/context-edge": "16.0.0",
-    "@uniformdev/context-edge-vercel": "16.0.0",
     "@uniformdev/context-next": "16.0.0",
     "@uniformdev/context-react": "16.0.0",
     "classnames": "^2.3.1",
