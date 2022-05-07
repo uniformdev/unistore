@@ -12,7 +12,7 @@ import 'tailwindcss/tailwind.css';
 const clientContext = createUniformContext();
 
 export const App = ({ Component, pageProps, serverUniformContext }: UniformAppProps) => (
-  <UniformContext context={serverUniformContext ?? clientContext} outputType="standard">
+  <UniformContext context={serverUniformContext ?? clientContext} outputType="edge">
     <ThemeProvider forcedTheme={process.env.THEME} attribute="class">
       <div className="app_container">
         <CartContextProvider>
