@@ -24,6 +24,7 @@ const config = {
     apiKey: process.env.UNIFORM_API_KEY,
     apiHost: process.env.UNIFORM_CLI_BASE_URL || 'https://uniform.app',
     previewSecret: process.env.UNIFORM_PREVIEW_SECRET || 'unistore',
+    outputType: process.env.UNIFORM_OUTPUT_TYPE || 'standard',
   },
 };
 

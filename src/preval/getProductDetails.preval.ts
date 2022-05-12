@@ -12,7 +12,6 @@ async function getProductDetails(): Promise<any> {
     return null;
   }
   return products.reduce<Record<string, ProductResult>>((productsById, product) => {
-    // eslint-disable-next-line no-param-reassign
     productsById[product.id!] = product;
     return productsById;
   }, {});

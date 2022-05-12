@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState, useEffect } from 'react';
 import { useAsync } from 'react-use';
 import {
   AddCartItem,
@@ -7,6 +7,7 @@ import {
   GetCartResponse,
   PutCartItemRequest,
 } from '@/typings/cartTypes';
+import useCookie from '@/hooks/useCookie';
 
 export type Cart = {
   numberItems: number;
@@ -52,6 +53,7 @@ export const CartContextProvider: React.FC = ({ children }) => {
   const [cart, setCart] = useState<Cart>();
   const [cartQueue, setNewQueue] = useState<AddCartItem[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
+  const [cartSize, setCartSize, deleteCartSize] = useCookie('cartSize', null);
 
   const [state, setState] = useState<Pick<CartContextProps, 'addingToCart' | 'updatingItem' | 'currency'>>({
     addingToCart: undefined,
@@ -65,6 +67,14 @@ export const CartContextProvider: React.FC = ({ children }) => {
     return cartItems + queueItems;
   }, [state.addingToCart, state.updatingItem, cart]);
 
+  useEffect(() => {
+    if (cartAmount) {
+      setCartSize(cartAmount);
+      return;
+    }
+    deleteCartSize();
+  }, [cartAmount]);
+
   const { loading: cartLoading } = useAsync(async () => {
     const response = await fetch(`/api/cart`, {
       method: 'get',
@@ -74,11 +84,6 @@ export const CartContextProvider: React.FC = ({ children }) => {
         'Content-Type': 'application/json',
       },
     });
-
-    if (response.status === 404) {
-      // no cart ID yet; nothing added
-      return;
-    }
 
     const json: GetCartResponse = await response.json();
 

@@ -66,8 +66,7 @@ const createBigCommerceContextQueryEnhancer = ({
     },
   };
 };
+
 export const createCategoriesBrandsEnhancers = () => {
-  return new EnhancerBuilder()
-    .data('categories', async () => getCategories())
-    .data('brands', async () => getBrands());
+  return new EnhancerBuilder().data('categories', async () => getCategories()).data('brands', async () => getBrands());
 };

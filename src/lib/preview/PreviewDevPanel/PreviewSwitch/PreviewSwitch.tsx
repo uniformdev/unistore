@@ -30,9 +30,7 @@ function PreviewSwitch({ previewing }: { previewing: boolean }) {
     <button
       type="button"
       onClick={() => {
-        const url = `/api/preview?slug=${router.asPath}${
-          previewing ? '&disable=1' : `&secret=${previewSecret}`
-        }`;
+        const url = `/api/preview?slug=${router.asPath}${previewing ? '&disable=1' : `&secret=${previewSecret}`}`;
 
         router.push(url);
       }}

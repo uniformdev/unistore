@@ -99,7 +99,7 @@ const handleDelete = async (req: NextApiRequest, res: NextApiResponse) => {
   if (response.status === 204) {
     res.setHeader(
       'Set-Cookie',
-      serialize(CART_ID_COOKIE_NAME, '', {
+      serialize('cartId', '', {
         maxAge: -1, // 4 weeks
       })
     );
@@ -114,11 +114,6 @@ const handleDelete = async (req: NextApiRequest, res: NextApiResponse) => {
 const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
   const cartId = req.cookies[CART_ID_COOKIE_NAME];
 
-  if (!cartId) {
-    res.status(404).json({ error: 'Cart not found' });
-    return;
-  }
-
   const endpoint = constructCartUrl({
     cartId,
   });
@@ -128,9 +123,12 @@ const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
     headers: bigCommerceRequestHeaders,
   });
 
-  const json = await response.json();
-
-  res.status(response.status).json(json);
+  try {
+    const json = await response.json();
+    res.status(response.status).json(json);
+  } catch (error) {
+    console.log('cart is empty');
+  }
 };
 
 const handlePost = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -158,7 +156,7 @@ const handlePost = async (req: NextApiRequest, res: NextApiResponse) => {
   if (!cartId && json.data?.id) {
     res.setHeader(
       'Set-Cookie',
-      serialize(CART_ID_COOKIE_NAME, json.data.id, {
+      serialize('cartId', json.data.id, {
         maxAge: 60 * 60 * 24 * 28, // 4 weeks
       })
     );
