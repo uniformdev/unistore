@@ -9,7 +9,7 @@ const config = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    domains: ['images.ctfassets.net', 's3-alpha-sig.figma.com', 'cdn11.bigcommerce.com', 'images.unsplash.com'],
+    domains: ['images.contentstack.io', 'images.ctfassets.net', 's3-alpha-sig.figma.com', 'cdn11.bigcommerce.com', 'images.unsplash.com'],
   },
   env: {
     THEME: process.env.THEME || 'light',
