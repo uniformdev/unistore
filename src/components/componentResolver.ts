@@ -22,6 +22,7 @@ import Container1323 from './containers/Container13-23';
 
 const componentMappings: ComponentMapping = {
   hero: HeroFullWidth,
+  heroCms: HeroFullWidth,
   heroFullWidth: HeroFullWidth,
   heroImageRight: HeroImageRight,
   callToAction: CallToActionFullWidth,

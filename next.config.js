@@ -15,6 +15,9 @@ const config = {
     THEME: process.env.THEME || 'light',
   },
   serverRuntimeConfig: {
+    contentstackApiKey: process.env.CONTENTSTACK_API_KEY,
+    contentstackDeliveryToken: process.env.CONTENTSTACK_DELIVERY_TOKEN,
+    contentstackEnvironment: process.env.CONTENTSTACK_ENVIRONMENT,
     bcStoreHash: process.env.BIGCOMMERCE_STORE_HASH,
     bcApiToken: process.env.BIGCOMMERCE_TOKEN,
     bcProductLimit: process.env.BIGCOMMERCE_PRODUCTS_LIMIT || 20,

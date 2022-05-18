@@ -1,7 +1,12 @@
-import { CanvasClient, CANVAS_PUBLISHED_STATE, CANVAS_DRAFT_STATE, enhance, EnhancerBuilder } from '@uniformdev/canvas';
+import { CanvasClient, CANVAS_PUBLISHED_STATE, CANVAS_DRAFT_STATE, enhance, compose, EnhancerBuilder } from '@uniformdev/canvas';
 import { CANVAS_BIGCOMMERCE_PARAMETER_TYPES } from '@uniformdev/canvas-bigcommerce';
 import { bigCommerceEnhancer, createCategoriesBrandsEnhancers } from '@/utils/enhancers';
 import getConfig from 'next/config';
+
+import { contentstackEnhancer } from "../lib/enhancers/contentstack/contentstackEnhancer";
+import { contentstackModelConverter } from "../lib/enhancers/contentstack/contentstackModelConverter";
+
+import { CANVAS_CONTENTSTACK_PARAMETER_TYPES } from '@uniformdev/canvas-contentstack';
 
 const {
   serverRuntimeConfig: { apiKey, apiHost, projectId },
@@ -23,7 +28,9 @@ export async function getCompositionBySlug(slug: string, context: any) {
   await enhance({
     composition,
     context,
-    enhancers: new EnhancerBuilder().parameterType(CANVAS_BIGCOMMERCE_PARAMETER_TYPES, bigCommerceEnhancer),
+    enhancers: new EnhancerBuilder()
+      .parameterType(CANVAS_BIGCOMMERCE_PARAMETER_TYPES, bigCommerceEnhancer)
+      .parameterType(CANVAS_CONTENTSTACK_PARAMETER_TYPES, compose(contentstackEnhancer(), contentstackModelConverter)),
   });
 
   // TODO: review this approach
