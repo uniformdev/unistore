@@ -5,7 +5,7 @@ import { RootComponentInstance } from '@uniformdev/canvas';
 
 function PreviewEnabler({ preview, composition }: { preview?: boolean; composition: RootComponentInstance }) {
   const {
-    serverRuntimeConfig: { projectId },
+    publicRuntimeConfig: { projectId },
   } = getConfig();
 
   useLivePreviewNextStaticProps({

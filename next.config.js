@@ -26,6 +26,9 @@ const config = {
     previewSecret: process.env.UNIFORM_PREVIEW_SECRET || 'unistore',
     outputType: process.env.UNIFORM_OUTPUT_TYPE || 'standard',
   },
+  publicRuntimeConfig: {
+    projectId: process.env.UNIFORM_PROJECT_ID,
+  },
 };
 
 module.exports = withNextPluginPreval(config);
