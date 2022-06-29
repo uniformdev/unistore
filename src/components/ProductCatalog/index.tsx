@@ -99,7 +99,9 @@ const ProductCatalog = ({ showFilters, categories, brands }: ProductCatalogProps
 
   useEffect(() => {
     if (brand || category || page) {
-      searchInput.current.value = '';
+      if (searchInput.current) {
+        searchInput.current.value = '';
+      }
       push(
         {
           pathname: pathname.toString(),
