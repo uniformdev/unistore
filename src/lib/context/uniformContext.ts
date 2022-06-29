@@ -1,6 +1,6 @@
-import { Context, ManifestV2, enableContextDevTools } from '@uniformdev/context';
-import { NextCookieTransitionDataStore } from '@uniformdev/context-next';
 import { NextPageContext } from 'next';
+import { Context, ManifestV2, enableContextDevTools, enableDebugConsoleLogDrain } from '@uniformdev/context';
+import { NextCookieTransitionDataStore } from '@uniformdev/context-next';
 import manifest from './manifest.json';
 
 export function createUniformContext(serverContext?: NextPageContext) {
@@ -10,16 +10,7 @@ export function createUniformContext(serverContext?: NextPageContext) {
     transitionStore: new NextCookieTransitionDataStore({
       serverContext,
     }),
-    plugins: [enableContextDevTools()],
+    plugins: [enableContextDevTools(), enableDebugConsoleLogDrain('debug')],
   });
-
-  context.events.on('personalizationResult', result => {
-    console.log('personalizationResult', { result });
-  });
-
-  context.events.on('testResult', result => {
-    console.log('Test result', { result });
-  });
-
   return context;
 }
