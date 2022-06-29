@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import { ComponentInstance } from '@uniformdev/canvas';
 import { getTopNavCategoryLinks } from '@/utils/navUtils';
 import { getCompositionBySlug, getCompositionPaths } from '@/utils/canvasClient';
@@ -12,7 +12,7 @@ const CanvasComposition: NextPage<{
   preview: boolean;
 }> = props => <CommonPageContainer {...props} />;
 
-export const getServerSideProps: GetServerSideProps<{
+export const getStaticProps: GetStaticProps<{
   composition: ComponentInstance;
   topNavCategoryLinks: Array<NavLinkProp>;
 }> = async context => {
@@ -26,5 +26,10 @@ export const getServerSideProps: GetServerSideProps<{
     },
   };
 };
+
+export async function getStaticPaths() {
+  const paths = await getCompositionPaths();
+  return { paths, fallback: true };
+}
 
 export default CanvasComposition;
