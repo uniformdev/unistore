@@ -7,7 +7,7 @@ const UNSUPPORTED_VERB = 'Unsupported verb';
 interface Options {
   includeFields: string | string[];
   include: string | string[];
-  keyword: string | string[];
+  keyword: string | string[] | undefined;
   limit: string | string[];
   categories?: string | string[];
   brand?: string | string[];
