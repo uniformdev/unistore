@@ -17,7 +17,7 @@ async function fetchCategories() {
     headers: bigCommerceRequestHeaders,
   });
   const { data: categories } = await getCategories.json();
-  return categories.map((category: CategoryFull) => ({
+  return categories?.map((category: CategoryFull) => ({
     id: category.id,
     name: category.name,
     isVisible: category.is_visible,

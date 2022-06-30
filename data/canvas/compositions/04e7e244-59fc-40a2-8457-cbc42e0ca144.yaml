@@ -13,6 +13,25 @@ composition:
               parameters:
                 title:
                   type: text
+                  value: Complete your purchase now
+                $pzCrit:
+                  type: $pzCrit
+                  value:
+                    crit:
+                      - l: shoppingCartActive
+                        op: +
+                subtitle:
+                  type: text
+                  value: and receive free shipping
+                backgroundImage:
+                  type: text
+                  value: >-
+                    https://images.unsplash.com/photo-1524657049226-51f8180e28b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80
+            - type: hero
+              variant: fullWidth
+              parameters:
+                title:
+                  type: text
                   value: Our launch special!
                 $pzCrit:
                   type: $pzCrit
@@ -28,25 +47,6 @@ composition:
                   type: text
                   value: >-
                     https://images.unsplash.com/photo-1533230408708-8f9f91d1235a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80
-            - type: hero
-              variant: fullWidth
-              parameters:
-                title:
-                  type: text
-                  value: Complete your purchase now
-                $pzCrit:
-                  type: $pzCrit
-                  value:
-                    crit:
-                      - l: shoppingCartActive
-                        op: +
-                subtitle:
-                  type: text
-                  value: and receive free shipping
-                backgroundImage:
-                  type: text
-                  value: >-
-                    https://images.unsplash.com/photo-1524657049226-51f8180e28b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80
             - type: hero
               variant: ''
               parameters:

@@ -14,13 +14,15 @@ export type ProductsCarouselProps = {
 const ProductsCarousel = ({ title, products, seeMoreTitle, seeMoreUrl }: ProductsCarouselProps) => (
   <div className="pt-16 px-4">
     <p className="dark:text-white font-overpass font-extrabold text-black lg:text-4xl text-2xl text-center">{title}</p>
-    <Carousel>
-      {products.map(item => (
-        <div key={`featured-product-${item.id}`} className="px-1">
-          <ProductItem product={item} />
-        </div>
-      ))}
-    </Carousel>
+    {products && Array.isArray(products) && (
+      <Carousel>
+        {products.map(item => (
+          <div key={`featured-product-${item.id}`} className="px-1">
+            <ProductItem product={item} />
+          </div>
+        ))}
+      </Carousel>
+    )}
     {seeMoreTitle && seeMoreUrl && (
       <div className="pt-6 grid place-items-center">
         <LinkButton href={seeMoreUrl} text={seeMoreTitle} className="mt-8 px-4" />
