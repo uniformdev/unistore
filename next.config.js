@@ -26,6 +26,7 @@ const config = {
     previewSecret: process.env.UNIFORM_PREVIEW_SECRET || 'unistore',
     outputType: process.env.UNIFORM_OUTPUT_TYPE || 'standard',
   },
+  swcMinify: false,
   publicRuntimeConfig: {
     projectId: process.env.UNIFORM_PROJECT_ID,
   },

@@ -43,7 +43,8 @@
     "lint": "eslint --ext .js --ext .jsx --ext .tsx --ext .ts ./",
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
     "fix-js-lint": "eslint --fix \"./**/*.{ts,tsx}\"",
-    "fix": "npm run format && npm run fix-js-lint"
+    "fix": "npm run format && npm run fix-js-lint",
+    "start:stackblitz": "npm install && next dev"
   },
   "dependencies": {
     "@types/lodash": "^4.14.178",
@@ -115,5 +116,9 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint"
+  },
+  "stackblitz": {
+    "startCommand": "npm run start:stackblitz",
+    "compileTrigger": "save"
   }
 }
