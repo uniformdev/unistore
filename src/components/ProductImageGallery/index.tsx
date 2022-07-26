@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import cx from 'classnames';
 import { ProductResult } from '@uniformdev/canvas-bigcommerce';
-import NoImage from '../../../public/img/no-image.jpg';
+import NoImage from '../../../public/img/no-image.svg';
 
 export type ImageProps = { id: number; urlStandard: string };
 
