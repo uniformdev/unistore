@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+package-lock.json
 
 # testing
 /coverage
@@ -35,8 +36,6 @@ npm-debug.log*
 #idea
 .idea
 
-#env
-.env
 
 #storybook-static
 storybook-static
