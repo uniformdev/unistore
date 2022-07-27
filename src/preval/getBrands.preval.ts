@@ -11,10 +11,10 @@ async function getBrands(): Promise<any> {
 }
 
 async function fetchBrands() {
-  const getBrands = await fetch(`${bigCommerceRootUrl}catalog/brands?limit=${bigCommerceConfig.apiBrandLimit}`, {
+  const response = await fetch(`${bigCommerceRootUrl}catalog/brands?limit=${bigCommerceConfig.apiBrandLimit}`, {
     headers: bigCommerceRequestHeaders,
   });
-  const { data: brands } = await getBrands.json();
+  const { data: brands } = await response.json();
   return brands;
 }
 

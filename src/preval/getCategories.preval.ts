@@ -13,10 +13,10 @@ async function getCategories(): Promise<any> {
 
 async function fetchCategories() {
   const url = `${bigCommerceRootUrl}catalog/categories?limit=${bigCommerceConfig.apiCategoryLimit}`;
-  const getCategories = await fetch(url, {
+  const response = await fetch(url, {
     headers: bigCommerceRequestHeaders,
   });
-  const { data: categories } = await getCategories.json();
+  const { data: categories } = await response.json();
   return categories?.map((category: CategoryFull) => ({
     id: category.id,
     name: category.name,
