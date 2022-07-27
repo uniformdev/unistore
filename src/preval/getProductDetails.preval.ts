@@ -12,8 +12,14 @@ async function getProductDetails(): Promise<any> {
     return null;
   }
   return products.reduce<Record<string, ProductResult>>((productsById, product) => {
-    productsById[product.id!] = product;
+    const key = product.id;
+    if (!key) {
+      return productsById;
+    }
+    /* eslint-disable no-param-reassign */
+    productsById[key] = product;
     return productsById;
+    /* eslint-enable no-param-reassign */
   }, {});
 }
 
