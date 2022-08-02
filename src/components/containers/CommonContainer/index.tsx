@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { Composition, Slot } from '@uniformdev/canvas-react';
-import { ComponentInstance } from '@uniformdev/canvas';
+import { RootComponentInstance } from '@uniformdev/canvas';
 import Navbar from '@/components/Navigation/Header';
 import Footer from '@/components/Navigation/Footer';
 import componentResolver from '@/components/componentResolver';
@@ -15,7 +15,7 @@ const CommonContainer = ({
   preview,
 }: {
   preview: boolean;
-  composition: ComponentInstance;
+  composition: RootComponentInstance;
   topNavCategoryLinks: Array<NavLinkProp>;
 }) => (
   <>

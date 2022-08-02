@@ -1,19 +1,19 @@
 import React from 'react';
 import type { GetStaticProps, NextPage } from 'next';
-import { ComponentInstance } from '@uniformdev/canvas';
+import { RootComponentInstance } from '@uniformdev/canvas';
 import { getTopNavCategoryLinks } from '@/utils/navUtils';
 import { getCompositionBySlug, getCompositionPaths } from '@/utils/canvasClient';
 import CommonPageContainer from '@/components/containers/CommonContainer';
 import { NavLinkProp } from '@/components/atoms/NavLink';
 
 const CanvasComposition: NextPage<{
-  composition: ComponentInstance;
+  composition: RootComponentInstance;
   topNavCategoryLinks: Array<NavLinkProp>;
   preview: boolean;
 }> = props => <CommonPageContainer {...props} />;
 
 export const getStaticProps: GetStaticProps<{
-  composition: ComponentInstance;
+  composition: RootComponentInstance;
   topNavCategoryLinks: Array<NavLinkProp>;
 }> = async context => {
   const slug = context?.params?.id as string;

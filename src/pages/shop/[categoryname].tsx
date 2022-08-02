@@ -1,6 +1,6 @@
 import React from 'react';
 import type { NextPage } from 'next';
-import { enhance, ComponentInstance } from '@uniformdev/canvas';
+import { enhance, RootComponentInstance } from '@uniformdev/canvas';
 import { CategoryResult } from '@uniformdev/canvas-bigcommerce';
 import { createCategoriesBrandsEnhancers } from '@/utils/enhancers';
 import { getTopNavCategoryLinks } from '@/utils/navUtils';
@@ -11,7 +11,7 @@ import { NavLinkProp } from '@/components/atoms/NavLink';
 import CommonPageContainer from '@/components/containers/CommonContainer';
 
 const ShopCategory: NextPage<{
-  composition: ComponentInstance;
+  composition: RootComponentInstance;
   topNavCategoryLinks: Array<NavLinkProp>;
   preview: boolean;
 }> = props => <CommonPageContainer {...props} />;

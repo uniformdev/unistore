@@ -1,6 +1,6 @@
 import React from 'react';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { enhance, ComponentInstance } from '@uniformdev/canvas';
+import { enhance, RootComponentInstance } from '@uniformdev/canvas';
 import { createProductDetailEnhancers } from '@/utils/enhancers';
 import { getProducts } from '@/utils/bigCommerce';
 import { canvasClient, getState } from '@/utils/canvasClient';
@@ -10,7 +10,7 @@ import { NavLinkProp } from '@/components/atoms/NavLink';
 import CommonPageContainer from '@/components/containers/CommonContainer';
 
 const ProductDetail: NextPage<{
-  composition: ComponentInstance;
+  composition: RootComponentInstance;
   topNavCategoryLinks: Array<NavLinkProp>;
   preview: boolean;
 }> = props => <CommonPageContainer {...props} />;
