@@ -29,6 +29,8 @@ const componentMappings: ComponentMapping = {
   callToActionMini: CallToActionMini,
   latestStories: LatestStories,
   featuredProducts: ProductsCarousel,
+  dynamicProductList: ProductsCarousel,
+  productRecommendations: ProductsCarousel,
   featureItem: FeatureItem,
   contactForm: ContactForm,
   productCatalog: ProductCatalog,

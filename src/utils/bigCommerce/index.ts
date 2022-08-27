@@ -1,9 +1,9 @@
 import { BrandResult, CategoryResult, createBigCommerceClient, ProductResult } from '@uniformdev/canvas-bigcommerce';
-import { fetchAndRetry } from './fetchAndRetry';
-import getCategoriesPreval from '../preval/getCategories.preval';
-import getBrandsPreval from '../preval/getBrands.preval';
-import getProductsPreval from '../preval/getProducts.preval';
-import getProductDetailsPreval from '../preval/getProductDetails.preval';
+import { fetchAndRetry } from '../fetchAndRetry';
+import getCategoriesPreval from '../../preval/getCategories.preval';
+import getBrandsPreval from '../../preval/getBrands.preval';
+import getProductsPreval from '../../preval/getProducts.preval';
+import getProductDetailsPreval from '../../preval/getProductDetails.preval';
 
 export const bigCommerceClient = createBigCommerceClient({
   storeHash: process.env.BIGCOMMERCE_STORE_HASH!,

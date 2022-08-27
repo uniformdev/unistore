@@ -5,7 +5,7 @@ import {
   GetProductsOptions,
   parameterIsBigCommerceProductQuery,
 } from '@uniformdev/canvas-bigcommerce';
-import { bigCommerceClient, getBrands, getCategories, getProduct, getProductsByCategory } from './bigCommerce';
+import { bigCommerceClient, getBrands, getCategories, getProduct, getProductsByCategory } from '../../../utils/bigCommerce';
 
 export const bigCommerceEnhancer = createBigCommerceEnhancer({
   client: bigCommerceClient,

@@ -2,7 +2,7 @@ import React from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 import { RootComponentInstance } from '@uniformdev/canvas';
 import { getTopNavCategoryLinks } from '@/utils/navUtils';
-import { getCompositionBySlug } from '@/utils/canvasClient';
+import { getCompositionBySlug } from '@/lib/canvasClient';
 import { NavLinkProp } from '@/components/atoms/NavLink';
 import CommonPageContainer from '@/components/containers/CommonContainer';
 

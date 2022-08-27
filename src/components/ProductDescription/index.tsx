@@ -1,13 +1,15 @@
-import React from 'react';
-import { ProductResult } from '@uniformdev/canvas-bigcommerce';
+import React, { useContext } from 'react';
+import CurrentProductContext from '@/lib/hooks/currentProduct';
 
 export type ProductDescriptionProps = {
   title: string;
-  product?: ProductResult;
 };
 
-const ProductDescription = ({ title, product }: ProductDescriptionProps) => {
-  const { description } = product || {};
+const ProductDescription = ({ title }: ProductDescriptionProps) => {
+  const product = useContext(CurrentProductContext);
+  if (!product) return null;
+  const { longDescription  } = product || {};
+
   return (
     <>
       <div className="border-t-2 flex">
@@ -18,7 +20,7 @@ const ProductDescription = ({ title, product }: ProductDescriptionProps) => {
       <div className="mt-16">
         <div
           className="font-overpass dark:text-white text-black text-base leading-6"
-          dangerouslySetInnerHTML={{ __html: description || '' }}
+          dangerouslySetInnerHTML={{ __html: longDescription || '' }}
         />
       </div>
     </>

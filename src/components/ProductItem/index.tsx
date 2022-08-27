@@ -13,10 +13,9 @@ export type ProductItemType = {
 };
 
 const ProductItem = ({ product }: ProductItemType) => {
-  const { id, variants, images } = product || {};
-  const image = images?.[0]?.url_standard;
+  const { id, images } = product || {};
+  const image = images?.[0]?.src || NoImage;
   const { currency } = useCartContext();
-  const productVariant = variants && variants.length > 0 ? variants[0] : {};
   return (
     <div
       className={`group flex flex-1 flex-col w-full md:w-[235px] mb-16 mx-auto mb-auto mt-0 border border-demo_border lg:border-0 mt-[30px]
@@ -27,22 +26,12 @@ const ProductItem = ({ product }: ProductItemType) => {
         <Link {...buildProductDetailLink({ id: id ?? '', productName: product.name })}>
           <div className="flex flex-col cursor-pointer items-center w-full">
             <div className="relative p-[10px] lg:-m-[2px] lg:outline-1 lg:outline outline-demo_border bg-white lg:group-hover:outline-transparent dark:lg:group-hover:outline-white">
-              <Image width={226} height={237} src={image || NoImage} />
+              <Image width={226} height={237} src={image} />
             </div>
             <span className="mt-6 font-bold text-xl h-[58px] max-w-[205px] overflow-hidden text-ellipsis text-center">
               {product.name}
             </span>
             <div className="flex flex-col font-overpass h-14">
-              {product?.sale_price !== 0 && (
-                <CurrencyFormatter
-                  currency={currency.code}
-                  amount={
-                    productVariant.sale_price && productVariant.sale_price !== 0
-                      ? productVariant.sale_price
-                      : product.sale_price
-                  }
-                />
-              )}
               <CurrencyFormatter
                 className={`${product?.sale_price && `dark:text-white opacity-50 line-through`}`}
                 currency={currency.code}

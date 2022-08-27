@@ -10,6 +10,6 @@ export const buildProductDetailLink = ({
 }): LinkProps => {
   const slug = sluggify(productName);
   return {
-    href: `/products/${id}/${slug}`,
+    href: `/products/${id}`,
   };
 };
