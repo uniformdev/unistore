@@ -7,7 +7,7 @@ const ContainerProductDetail = () => {
   const product = useContext(CurrentProductContext);
   const { primaryCategoryId } = product || {};
   const enrichments = primaryCategoryId
-    ? primaryCategoryId.split('-').map(e => {
+    ? primaryCategoryId.split('-').map((e: string) => {
         return {
           cat: 'cat',
           key: e,
