@@ -1,5 +1,6 @@
 id: productDescription
 name: Product Description
+permissions: []
 icon: format-text
 parameters:
   - id: title
@@ -7,8 +8,9 @@ parameters:
     type: text
     typeConfig:
       required: true
+useTeamPermissions: true
 slots: []
 titleParameter: title
 canBeComposition: false
-created: '2022-01-23T19:56:14.341492+00:00'
-updated: '2022-01-23T19:56:14.341492+00:00'
+created: '2022-08-27T18:35:24.42644+00:00'
+updated: '2022-08-27T18:35:24.42644+00:00'

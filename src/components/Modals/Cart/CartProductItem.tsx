@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/dist/client/link';
 import Image from 'next/image';
 import { buildProductDetailLink } from '@/utils/linkUtils';
-import NoImage from '../../../../public/img/no-image.svg';
+import NoImage from '@/public/img/no-image.svg';
 import { useCartContext } from '@/context/CartProvider';
 import { CartLineItem } from '@/typings/cartTypes';
 

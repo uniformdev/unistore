@@ -1,8 +1,26 @@
 {
   "project": {
     "pz": {
+      "agg": {
+        "buyAWomensJacket": {
+          "inputs": [
+            {
+              "dim": "cartWomensJackets"
+            },
+            {
+              "dim": "cat_womens"
+            },
+            {
+              "dim": "cat_jackets"
+            },
+            {
+              "dim": "cat_clothing"
+            }
+          ]
+        }
+      },
       "enr": {
-        "1": {
+        "cat": {
           "cap": 100
         }
       },
@@ -43,6 +61,46 @@
                   "rhs": "launch"
                 },
                 "queryName": "utm_campaign"
+              }
+            ]
+          }
+        },
+        "sanFrancisco": {
+          "str": 50,
+          "cap": 100,
+          "dur": "p",
+          "crit": {
+            "op": "|",
+            "type": "G",
+            "clauses": [
+              {
+                "key": "ntl-city",
+                "type": "QK",
+                "match": {
+                  "cs": false,
+                  "op": "=",
+                  "rhs": "San Francisco"
+                }
+              }
+            ]
+          }
+        },
+        "cartWomensJackets": {
+          "str": 50,
+          "cap": 100,
+          "dur": "p",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "type": "CK",
+                "match": {
+                  "cs": false,
+                  "op": "~",
+                  "rhs": "womens-clothing-jacket"
+                },
+                "cookieName": "cartItems"
               }
             ]
           }

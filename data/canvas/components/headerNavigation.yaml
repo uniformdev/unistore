@@ -1,0 +1,16 @@
+id: headerNavigation
+name: Header Navigation
+permissions: []
+icon: border-top
+parameters: []
+useTeamPermissions: true
+slots:
+  - id: navLinks
+    name: Nav Links
+    allowedComponents:
+      - navigationItem
+    inheritAllowedComponents: false
+titleParameter: ''
+canBeComposition: false
+created: '2022-08-27T20:59:23.158823+00:00'
+updated: '2022-08-27T21:05:28.462234+00:00'

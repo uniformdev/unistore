@@ -4,30 +4,17 @@ composition:
   _name: Home
   _slug: /
   slots:
+    header:
+      - _id: 2a122122-f27c-4c98-807a-7acd76e6e1e6
+        type: headerNavigation
+        _pattern: 5489387d-34dc-46a7-9a04-97d49facbaf3
     content:
-      - type: $personalization
+      - _id: 25b88ea6-50fe-48bd-9531-1f18da4bb5e7
+        type: $personalization
         slots:
           pz:
-            - type: hero
-              variant: fullWidth
-              parameters:
-                title:
-                  type: text
-                  value: Complete your purchase now
-                $pzCrit:
-                  type: $pzCrit
-                  value:
-                    crit:
-                      - l: shoppingCartActive
-                        op: +
-                subtitle:
-                  type: text
-                  value: and receive free shipping
-                backgroundImage:
-                  type: text
-                  value: >-
-                    https://images.unsplash.com/photo-1524657049226-51f8180e28b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80
-            - type: hero
+            - _id: 71c5693d-5f9b-4a82-9686-032637969fd4
+              type: hero
               variant: fullWidth
               parameters:
                 title:
@@ -47,7 +34,70 @@ composition:
                   type: text
                   value: >-
                     https://images.unsplash.com/photo-1533230408708-8f9f91d1235a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80
-            - type: hero
+            - _id: 4fc44fac-3621-40e5-a094-2794509e2233
+              type: hero
+              variant: fullWidth
+              parameters:
+                title:
+                  type: text
+                  value: Complete your purchase now
+                $pzCrit:
+                  type: $pzCrit
+                  value:
+                    crit:
+                      - l: shoppingCartActive
+                        op: +
+                subtitle:
+                  type: text
+                  value: and receive free shipping
+                backgroundImage:
+                  type: text
+                  value: >-
+                    https://images.unsplash.com/photo-1524657049226-51f8180e28b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80
+            - _id: d9fec013-ac35-4585-95ec-e0340191e7a2
+              type: hero
+              variant: fullWidth
+              parameters:
+                title:
+                  type: text
+                  value: Karl the fog will be impressed.
+                $pzCrit:
+                  type: $pzCrit
+                  value:
+                    crit:
+                      - l: sanFrancisco
+                        r: '50'
+                        op: '>='
+                subtitle:
+                  type: text
+                  value: For that tech bro look
+                backgroundImage:
+                  type: text
+                  value: >-
+                    https://images.unsplash.com/photo-1580245014120-2f57fbc5508f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=400&q=80
+            - _id: 8255a430-a9c5-4731-8230-459803ab1fc5
+              type: hero
+              variant: fullWidth
+              parameters:
+                title:
+                  type: text
+                  value: It's jacket season
+                $pzCrit:
+                  type: $pzCrit
+                  value:
+                    crit:
+                      - l: buyAWomensJacket
+                        r: '80'
+                        op: '>='
+                subtitle:
+                  type: text
+                  value: Enjoy 10% off our special jackets
+                backgroundImage:
+                  type: text
+                  value: >-
+                    https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1100&q=80
+            - _id: f7a37972-476e-440f-a3f2-112b40033f4c
+              type: hero
               variant: ''
               parameters:
                 title:
@@ -64,7 +114,8 @@ composition:
           trackingEventName:
             type: text
             value: Home hero
-      - type: callToAction
+      - _id: 127682b8-dc4c-478b-a541-fa3fa8afbd32
+        type: callToAction
         parameters:
           text:
             type: text
@@ -81,140 +132,58 @@ composition:
           callToActionTitle:
             type: text
             value: null
-      - type: featuredProducts
+      - _id: de6a6f9c-9381-45f2-a6d5-e2de27fc1b8a
+        type: featuredProducts
         parameters:
           title:
             type: text
-            value: For your kitchen
+            value: Our Awesome Jackets
           products:
-            type: bigcommerceProductQuery
+            type: salesforce-cc-product-selector
             value:
-              sort: date_modified
-              brand: ''
-              count: 8
-              keyword: ''
-              sortOrder: desc
-              categories:
-                - '21'
+              value:
+                - id: 25697499M
+                - id: 25518447M
+                - id: 25592075M
+                - id: 25519044M
+                - id: 25629026M
           seeMoreUrl:
             type: text
-            value: /shop/kitchen
+            value: /shop/jackets
           seeMoreTitle:
             type: text
-            value: See more kitchen products
-      - type: featuredProducts
+            value: See more jackets
+      - _id: 49dcc179-36cc-4c56-8fc3-62b65aa72c88
+        type: dynamicProductList
         parameters:
           title:
             type: text
-            value: For your garden
+            value: Our Most Popular Tees
           products:
-            type: bigcommerceProductQuery
+            type: salesforce-cc-product-query
             value:
-              sort: date_modified
-              brand: ''
-              count: 8
-              keyword: ''
-              sortOrder: desc
-              categories:
-                - '19'
-      - type: callToAction
-        parameters:
-          text:
-            type: text
-            value: >-
-              Curabitur placerat, turpis non cursus rhoncus, tellus tortor
-              lobortis quam, vitae elementum nibh libero eget mi. Nunc sed
-              auctor sem, non scelerisque dui. 
-          title:
-            type: text
-            value: Another call to action
-      - type: container
-        slots:
-          left:
-            - type: callToAction
-              variant: mini
-              parameters:
-                text:
-                  type: text
-                  value: >-
-                    Curabitur placerat, turpis non cursus rhoncus, tellus tortor
-                    lobortis quam, vitae elementum nibh libero eget mi. Nunc sed
-                    auctor sem, non scelerisque dui.
-                title:
-                  type: text
-                  value: null
-                callToActionLink:
-                  type: text
-                  value: /shop/shop-all
-                callToActionTitle:
-                  type: text
-                  value: See all products
-          right:
-            - type: featureItem
-              parameters:
-                icon:
-                  type: text
-                  value: >-
-                    https://images.ctfassets.net/k2fp7upx2p2q/4Vfsfd83ZwsYPEg3bqOTYR/97fe668ddd7bd3ef4e4178034be915e6/download-3_1.png
-                text:
-                  type: text
-                  value: >-
-                    Quisque sit amet turpis neque. Aenean cursus vulputate erat.
-                    Nullam sagittis est feugiat maximus sagittis. Fusce euismod
-                    id dui id auctor.
-            - type: featureItem
-              parameters:
-                icon:
-                  type: text
-                  value: >-
-                    https://images.ctfassets.net/k2fp7upx2p2q/C8DH02LVzIr3MBk0QplMq/d898b15fa86f56ff6305b30140934d82/download-4_1.png
-                text:
-                  type: text
-                  value: >-
-                    Quisque sit amet turpis neque. Aenean cursus vulputate erat.
-                    Nullam sagittis est feugiat maximus sagittis. Fusce euismod
-                    id dui id auctor.
-            - type: featureItem
-              parameters:
-                icon:
-                  type: text
-                  value: >-
-                    https://images.ctfassets.net/k2fp7upx2p2q/Z1eWhYnLfEbzbVYcoD4F0/28cf3f07b0d4874f4112fa77420c0851/download-5_1.png
-                text:
-                  type: text
-                  value: >-
-                    Quisque sit amet turpis neque. Aenean cursus vulputate erat.
-                    Nullam sagittis est feugiat maximus sagittis. Fusce euismod
-                    id dui id auctor.
-            - type: featureItem
-              parameters:
-                icon:
-                  type: text
-                  value: >-
-                    https://images.ctfassets.net/k2fp7upx2p2q/2NLUr7QNJSu21zLNwK28gW/9e3f6c087775a4a8592595312c72a7b7/download-1_1.png
-                text:
-                  type: text
-                  value: >-
-                    Quisque sit amet turpis neque. Aenean cursus vulputate erat.
-                    Nullam sagittis est feugiat maximus sagittis. Fusce euismod
-                    id dui id auctor.
-        variant: 13-23
-        parameters: {}
-      - type: featuredProducts
+              sort: most-popular
+              count: 3
+              keyword: tees
+              category: womens
+      - _id: 684e8703-ae49-4ba8-b375-b5c10e182e15
+        type: container
+        _pattern: b491ec8e-8790-45a0-b7a3-420697897aa0
+      - _id: 50a5e519-0f62-4065-a78d-f4a0a72be2ea
+        type: productRecommendations
         parameters:
           title:
             type: text
-            value: For your home
+            value: Products just for you
           products:
-            type: bigcommerceProductQuery
+            type: salesforce-cc-einstein
             value:
-              sort: date_modified
-              brand: ''
-              count: 8
-              keyword: ''
-              sortOrder: desc
-              categories:
-                - '22'
+              context:
+                products:
+                  - id: 25565055M
+                  - id: 25593647M
+                  - id: 25565064M
+              recommender: products-in-all-categories
   parameters:
     pageMetaTitle:
       type: text
@@ -222,6 +191,7 @@ composition:
     pageMetaDescription:
       type: text
       value: Uniform commerce starter kit
-created: '2022-01-23T19:56:15.639745+00:00'
-modified: '2022-03-11T02:06:52.361817+00:00'
+created: '2022-08-27T18:35:26.727399+00:00'
+modified: '2022-08-27T23:40:25.937462+00:00'
 pattern: false
+resources: {}

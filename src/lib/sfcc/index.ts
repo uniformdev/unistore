@@ -1,18 +1,19 @@
-import { getProductsClient, getSearchClient } from "./salesforce-backend";
+import { getProductsClient, getSearchClient } from './salesforce-backend';
+import { IntegrationSettings } from './types';
 
-export const settings = {
-  clientId: process.env.SALESFORCE_COMMERCE_CLOUD_CLIENT_ID,
-  clientSecret: process.env.SALESFORCE_COMMERCE_CLOUD_CLIENT_SECRET,
-  organizationId: process.env.SALESFORCE_COMMERCE_CLOUD_ORG_ID,
-  shortCode: process.env.SALESFORCE_COMMERCE_CLOUD_SHORT_CODE,
-  siteId: process.env.SALESFORCE_COMMERCE_CLOUD_SITE_ID,
+export const settings: IntegrationSettings = {
+  clientId: process.env.SALESFORCE_COMMERCE_CLOUD_CLIENT_ID!,
+  clientSecret: process.env.SALESFORCE_COMMERCE_CLOUD_CLIENT_SECRET!,
+  organizationId: process.env.SALESFORCE_COMMERCE_CLOUD_ORG_ID!,
+  shortCode: process.env.SALESFORCE_COMMERCE_CLOUD_SHORT_CODE!,
+  siteId: process.env.SALESFORCE_COMMERCE_CLOUD_SITE_ID!,
 };
 
 export async function getProducts(productIds: Array<string>) {
-  const productsClient = await getProductsClient({ settings });
+  const productsClient = await getProductsClient();
   const { data } = await productsClient.getProducts({
     parameters: {
-      ids: productIds.join(","),
+      ids: productIds.join(','),
     },
   });
   if (data && data.length > 0) {
@@ -25,7 +26,7 @@ export async function getProduct(productId: string) {
   if (!productId) {
     return undefined;
   }
-  const productsClient = await getProductsClient({ settings });
+  const productsClient = await getProductsClient();
   const { data } = await productsClient.getProducts({
     parameters: {
       ids: productId,
@@ -37,26 +38,23 @@ export async function getProduct(productId: string) {
   return undefined;
 }
 
-export async function getProductsByCategory(
-  categoryId: string,
-  limit: number = 10
-) {
+export async function getProductsByCategory(categoryId: string, limit: number = 10) {
   if (!categoryId) {
     return undefined;
   }
-  const searchClient = await getSearchClient({ settings });
+  const searchClient = await getSearchClient();
   const results = await searchClient.productSearch({
     parameters: {
       // Don't ask.. Salesforce API forces you to have a textual query to
       // fetch products, butt apparently one can get around that requirement
       // by passing in a bogus price refinement...
-      refine: ["price=(0..999999)", `htype=master`, `cgid=${categoryId}`],
-      q: "",
+      refine: ['price=(0..999999)', `htype=master`, `cgid=${categoryId}`],
+      q: '',
       limit,
     },
   });
   if (!results.hits) {
     return [];
   }
-  return getProducts(results.hits.map((hit) => hit.productId));
+  return getProducts(results.hits.map(hit => hit.productId));
 }

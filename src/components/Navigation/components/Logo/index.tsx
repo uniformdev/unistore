@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 import { useTheme } from 'next-themes';
-import { Themes } from '@/utils/navUtils';
+import { Themes } from '@/utils/themes';
 
 type Props = {
   contentPosition?: LogoPosition;

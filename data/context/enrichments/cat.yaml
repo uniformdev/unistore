@@ -1,0 +1,14 @@
+id: cat
+name: Product Category
+cap: 100
+values:
+  - id: clothing
+    value: Clothing
+  - id: jackets
+    value: Jackets
+  - id: mens
+    value: Mens
+  - id: tops
+    value: Tops
+  - id: womens
+    value: Womens

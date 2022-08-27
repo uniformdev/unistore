@@ -1,15 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ProductResult } from '@uniformdev/canvas-bigcommerce';
 import { buildProductDetailLink } from '@/utils/linkUtils';
-import NoImage from '../../../public/img/no-image.svg';
+import NoImage from '@/public/img/no-image.svg';
 import { useCartContext } from '@/context/CartProvider';
 import ButtonAddToCart from '@/components/atoms/ButtonAddToCart';
 import CurrencyFormatter from '@/components/CurrencyFormatter';
 
 export type ProductItemType = {
-  product: ProductResult;
+  product: any;
 };
 
 const ProductItem = ({ product }: ProductItemType) => {

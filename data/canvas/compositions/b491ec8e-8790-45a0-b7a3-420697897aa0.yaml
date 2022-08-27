@@ -1,0 +1,84 @@
+composition:
+  _id: b491ec8e-8790-45a0-b7a3-420697897aa0
+  type: container
+  _name: Featured CTA
+  slots:
+    left:
+      - _id: 2d59d24f-9804-4662-9d43-528484cbeecd
+        type: callToAction
+        variant: mini
+        parameters:
+          text:
+            type: text
+            value: >-
+              Curabitur placerat, turpis non cursus rhoncus, tellus tortor
+              lobortis quam, vitae elementum nibh libero eget mi. Nunc sed
+              auctor sem, non scelerisque dui.
+          title:
+            type: text
+            value: Check out new arrivals
+          callToActionLink:
+            type: text
+            value: /shop/newarrivals
+          callToActionTitle:
+            type: text
+            value: See more
+    right:
+      - _id: 73789bcc-063a-4c3a-ad5c-7fdf6c24721b
+        type: featureItem
+        parameters:
+          icon:
+            type: text
+            value: >-
+              https://images.ctfassets.net/k2fp7upx2p2q/4Vfsfd83ZwsYPEg3bqOTYR/97fe668ddd7bd3ef4e4178034be915e6/download-3_1.png
+          text:
+            type: text
+            value: >-
+              Quisque sit amet turpis neque. Aenean cursus vulputate erat.
+              Nullam sagittis est feugiat maximus sagittis. Fusce euismod id dui
+              id auctor.
+      - _id: a476731e-3034-460f-923f-80e4b989721e
+        type: featureItem
+        parameters:
+          icon:
+            type: text
+            value: >-
+              https://images.ctfassets.net/k2fp7upx2p2q/C8DH02LVzIr3MBk0QplMq/d898b15fa86f56ff6305b30140934d82/download-4_1.png
+          text:
+            type: text
+            value: >-
+              Quisque sit amet turpis neque. Aenean cursus vulputate erat.
+              Nullam sagittis est feugiat maximus sagittis. Fusce euismod id dui
+              id auctor.
+      - _id: a7cf6b3a-c786-4768-8693-afb98cdf2c8f
+        type: featureItem
+        parameters:
+          icon:
+            type: text
+            value: >-
+              https://images.ctfassets.net/k2fp7upx2p2q/Z1eWhYnLfEbzbVYcoD4F0/28cf3f07b0d4874f4112fa77420c0851/download-5_1.png
+          text:
+            type: text
+            value: >-
+              Quisque sit amet turpis neque. Aenean cursus vulputate erat.
+              Nullam sagittis est feugiat maximus sagittis. Fusce euismod id dui
+              id auctor.
+      - _id: 2b2de6af-938c-4fda-884f-247eb28bf829
+        type: featureItem
+        parameters:
+          icon:
+            type: text
+            value: >-
+              https://images.ctfassets.net/k2fp7upx2p2q/2NLUr7QNJSu21zLNwK28gW/9e3f6c087775a4a8592595312c72a7b7/download-1_1.png
+          text:
+            type: text
+            value: >-
+              Quisque sit amet turpis neque. Aenean cursus vulputate erat.
+              Nullam sagittis est feugiat maximus sagittis. Fusce euismod id dui
+              id auctor.
+  variant: 13-23
+  parameters: {}
+created: '2022-08-27T18:44:46.492091+00:00'
+modified: '2022-08-27T23:18:15.122922+00:00'
+pattern: true
+resources: {}

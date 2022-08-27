@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/dist/client/link';
-import NoImage from '../../../public/img/no-image.svg';
-import Cross from '../../../public/img/cross.svg';
+import NoImage from '@/public/img/no-image.svg';
+import Cross from '@/public/img/cross.svg';
 import { CartLineItem } from '@/typings/cartTypes';
 import { buildProductDetailLink } from '@/utils/linkUtils';
 

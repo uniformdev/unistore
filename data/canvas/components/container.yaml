@@ -1,7 +1,9 @@
 id: container
 name: Container
+permissions: []
 icon: folder
 parameters: []
+useTeamPermissions: true
 slots:
   - id: left
     name: Left
@@ -24,8 +26,8 @@ slots:
     inheritAllowedComponents: false
 titleParameter: ''
 canBeComposition: false
-created: '2022-01-23T19:56:14.486063+00:00'
-updated: '2022-01-23T19:56:14.486063+00:00'
+created: '2022-08-27T18:35:24.320734+00:00'
+updated: '2022-08-27T18:35:24.320734+00:00'
 variants:
   - id: productDetail
     name: Product Detail

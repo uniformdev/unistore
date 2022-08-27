@@ -1,5 +1,6 @@
 id: callToAction
 name: Call to Action
+permissions: []
 icon: phone
 parameters:
   - id: title
@@ -22,11 +23,12 @@ parameters:
     name: Call to Action Link
     type: text
     typeConfig: null
+useTeamPermissions: true
 slots: []
 titleParameter: title
 canBeComposition: false
-created: '2022-01-23T19:56:14.439314+00:00'
-updated: '2022-01-23T19:56:14.439314+00:00'
+created: '2022-08-27T18:35:24.367116+00:00'
+updated: '2022-08-27T18:35:24.367116+00:00'
 variants:
   - id: mini
     name: Mini

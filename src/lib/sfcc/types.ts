@@ -1,16 +1,11 @@
-import type {
-  ProductCategory,
-  ProductSearchResult,
-  ProductSearchResults,
-} from "@uniformdev/mesh-sdk-react";
-import { z } from "zod";
+import { z } from 'zod';
 
 export const integrationSettingsSchema = z.object({
-  clientId: z.string().min(1, "Client ID is required"),
-  clientSecret: z.string().min(1, "Client Secret is required"),
-  organizationId: z.string().min(1, "Organization ID is required"),
-  shortCode: z.string().min(1, "Short Code is required"),
-  siteId: z.string().min(1, "Site ID is required"),
+  clientId: z.string().min(1, 'Client ID is required'),
+  clientSecret: z.string().min(1, 'Client Secret is required'),
+  organizationId: z.string().min(1, 'Organization ID is required'),
+  shortCode: z.string().min(1, 'Short Code is required'),
+  siteId: z.string().min(1, 'Site ID is required'),
   einsteinId: z.string().optional(),
   einsteinSiteId: z.string().optional(),
 });
@@ -24,12 +19,10 @@ export const productSelectorSettingsSchema = z
   })
   .nullable();
 
-export type ProductSelectorSettings = z.infer<
-  typeof productSelectorSettingsSchema
->;
+export type ProductSelectorSettings = z.infer<typeof productSelectorSettingsSchema>;
 
 const selectedProductSchema = z.object({
-  id: z.string().min(1, "Product ID is required"),
+  id: z.string().min(1, 'Product ID is required'),
   variantId: z.string().optional(),
 });
 
@@ -56,7 +49,7 @@ export const einsteinSettingsSchema = z.object({});
 export type EinsteinSettings = z.infer<typeof einsteinSettingsSchema>;
 
 export const einsteinValueSchema = z.object({
-  recommender: z.string().min(1, "Recommender is required"),
+  recommender: z.string().min(1, 'Recommender is required'),
   context: z.object({
     products: z.array(selectedProductSchema).optional(),
   }),
@@ -78,13 +71,9 @@ export interface QueryClient {
       sortOrder?: string;
       variants?: boolean;
     };
-  }) => Promise<ProductSearchResults>;
-  getExactProducts: ({
-    ids,
-  }: {
-    ids: string[];
-  }) => Promise<ProductSearchResult[]>;
-  getCategories: () => Promise<ProductCategory[]>;
+  }) => Promise<any>;
+  getExactProducts: ({ ids }: { ids: string[] }) => Promise<any[]>;
+  getCategories: () => Promise<any[]>;
   getRecommenders: () => Promise<
     {
       name: string;
@@ -93,7 +82,7 @@ export interface QueryClient {
     }[]
   >;
   getRecommendations: ({ recommender, context }: EinsteinValue) => Promise<{
-    products: ProductSearchResults["products"];
+    products: any;
   }>;
 }
 

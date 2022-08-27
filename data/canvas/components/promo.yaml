@@ -1,0 +1,29 @@
+id: promo
+name: Promo
+permissions: []
+icon: awards
+parameters:
+  - id: title
+    name: Title
+    type: text
+    helpText: ''
+    typeConfig:
+      required: true
+  - id: text
+    name: Text
+    type: text
+    helpText: ''
+    typeConfig:
+      multiline: true
+      linesCount: '3'
+  - id: link
+    name: Link
+    type: text
+    helpText: target promotion link
+    typeConfig: null
+useTeamPermissions: true
+slots: []
+titleParameter: title
+canBeComposition: false
+created: '2022-08-27T22:06:59.816704+00:00'
+updated: '2022-08-27T22:25:59.799041+00:00'

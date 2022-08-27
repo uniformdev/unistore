@@ -1,11 +1,10 @@
 import { getSearchClient } from "@/lib/sfcc/salesforce-backend";
-import { settings } from "@/lib/sfcc";
 
 export async function getAllProductIds(
   offset: number = 0,
   limit: number = 100
 ) {
-  const searchClient = await getSearchClient({ settings });
+  const searchClient = await getSearchClient();
   let productIds : Array<any> = [];
   let hitCount = 1;
   while (hitCount > 0) {

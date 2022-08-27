@@ -1,0 +1,295 @@
+composition:
+  _id: 5489387d-34dc-46a7-9a04-97d49facbaf3
+  type: headerNavigation
+  _name: Default Header Nav
+  slots:
+    navLinks:
+      - _id: 8e693180-0087-4988-bb43-b9e10d689ca3
+        type: navigationItem
+        slots:
+          subnavItems:
+            - _id: fa1b8877-8d72-4ace-91a5-970fe74d3ae1
+              type: navigationItem
+              slots:
+                subnavItems:
+                  - _id: f74065a4-e030-4b21-bea9-7219f81161e0
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/womens-clothing
+                      linkTitle:
+                        type: text
+                        value: Browse All
+                  - _id: 449795ea-0ad2-47e9-ade3-8318228bccbc
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/womens-clothing-tops
+                      linkTitle:
+                        type: text
+                        value: Tops
+                  - _id: 0c2b9482-fb0a-4778-b0f0-884b9618af6e
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/womens-clothing-jackets
+                      linkTitle:
+                        type: text
+                        value: Jackets
+                  - _id: e9866a6a-d5c5-4f4b-b258-c39bdabc9ea5
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/womens-clothing-dresses
+                      linkTitle:
+                        type: text
+                        value: Dresses
+              parameters:
+                link:
+                  type: text
+                  value: /shop/womens-clothing
+                linkTitle:
+                  type: text
+                  value: Clothing
+            - _id: 2032e2b4-8b67-4f78-a251-c57825756464
+              type: navigationItem
+              slots:
+                subnavItems:
+                  - _id: cc1b1218-80a6-4b78-85f0-fd6edbf28839
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/womens-accessories
+                      linkTitle:
+                        type: text
+                        value: Browse All
+                  - _id: 93beeeab-8976-480f-b358-a6a9bea91c95
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/womens-accessories-shoes
+                      linkTitle:
+                        type: text
+                        value: Shoes
+                  - _id: 2790f850-5236-408f-a657-47939ba808a2
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/womens-accessories-scarves
+                      linkTitle:
+                        type: text
+                        value: Scarves
+              parameters:
+                link:
+                  type: text
+                  value: /shop/womens-accessories
+                linkTitle:
+                  type: text
+                  value: Accessories
+            - _id: c0831988-521d-4325-8934-742ff3ae10f8
+              type: navigationItem
+              slots:
+                subnavItems:
+                  - _id: d6a234ba-d0f9-4b88-bc4d-43285d376c71
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/womens-jewelry
+                      linkTitle:
+                        type: text
+                        value: Browse All
+                  - _id: bf593e1c-b0d1-4298-af41-09a75bff73ce
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/womens-jewelry-earrings
+                      linkTitle:
+                        type: text
+                        value: Earrings
+                  - _id: 388392ae-f1a2-4a43-95bc-33de0e152e4f
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/womens-jewelry-necklaces
+                      linkTitle:
+                        type: text
+                        value: Necklaces
+                  - _id: 3c06bf7b-82e9-49f4-8e13-6929bec106c0
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/womens-jewelry-bracelets
+                      linkTitle:
+                        type: text
+                        value: Bracelets
+              parameters:
+                link:
+                  type: text
+                  value: /shop/womens-jewelry
+                linkTitle:
+                  type: text
+                  value: Jewelry
+            - _id: d1e51187-fcad-416b-aefc-a132f9355197
+              type: promo
+              parameters:
+                text:
+                  type: text
+                  value: Offer is active for next 1 hour
+                title:
+                  type: text
+                  value: Women Jackets are 20% off!
+        parameters:
+          link:
+            type: text
+            value: /shop/womens
+          linkTitle:
+            type: text
+            value: Women
+      - _id: ce68c498-3fc3-424e-a4f6-95916c191123
+        type: navigationItem
+        slots:
+          subnavItems:
+            - _id: 2cc7a6d2-eb7e-49eb-835a-259be75dddd8
+              type: navigationItem
+              slots:
+                subnavItems:
+                  - _id: e0d13fac-446a-4fa1-92a6-af3d164b6acf
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/mens-clothing
+                      linkTitle:
+                        type: text
+                        value: Browse All
+                  - _id: 031e41dd-2e3d-4e19-a176-e8a15b0ddf32
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/mens-clothing-pants
+                      linkTitle:
+                        type: text
+                        value: Pants
+                  - _id: 971cfb39-443b-434c-a5e8-571989a99ece
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/mens-clothing-shorts
+                      linkTitle:
+                        type: text
+                        value: Shorts
+                  - _id: 3f64621b-4e33-4498-b209-1a8a937f2668
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/mens-clothing-suits
+                      linkTitle:
+                        type: text
+                        value: Suits
+                  - _id: 22ea57d6-52ec-4368-94a0-e5136fb30e61
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: mens-clothing-dress-shirts
+                      linkTitle:
+                        type: text
+                        value: Dress Shirts
+              parameters:
+                link:
+                  type: text
+                  value: /shop/mens-clothing
+                linkTitle:
+                  type: text
+                  value: Clothing
+            - _id: 82821d53-f001-4340-9f51-b25c745349fe
+              type: navigationItem
+              slots:
+                subnavItems:
+                  - _id: 7c815151-7537-410d-b346-a2ecd16858a7
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/mens-accessories
+                      linkTitle:
+                        type: text
+                        value: Browse All
+                  - _id: 5fc505b0-f62f-4cc1-a833-9c56b0b40fa4
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/mens-accessories-luggage
+                      linkTitle:
+                        type: text
+                        value: Luggage
+                  - _id: 4d9ab947-fe53-4c61-8a95-db9dfe106d92
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/mens-accessories-gloves
+                      linkTitle:
+                        type: text
+                        value: Gloves
+                  - _id: a497160b-3204-4da9-bd63-c027e61c973b
+                    type: navigationItem
+                    parameters:
+                      link:
+                        type: text
+                        value: /shop/mens-accessories-ties
+                      linkTitle:
+                        type: text
+                        value: Ties
+              parameters:
+                link:
+                  type: text
+                  value: /shop/mens-accessories
+                linkTitle:
+                  type: text
+                  value: Accessories
+        parameters:
+          link:
+            type: text
+            value: /shop/mens
+          linkTitle:
+            type: text
+            value: Men
+      - _id: 7f5ecd13-4cec-4586-8468-71fac32492b4
+        type: navigationItem
+        parameters:
+          link:
+            type: text
+            value: /shop/newarrivals
+          linkTitle:
+            type: text
+            value: New Arrivals
+      - _id: 85c133bf-c8f5-487e-9190-bc381ab16ab2
+        type: navigationItem
+        parameters:
+          link:
+            type: text
+            value: /shop/top-seller
+          linkTitle:
+            type: text
+            value: Top Sellers
+  parameters: {}
+created: '2022-08-27T21:08:52.418033+00:00'
+modified: '2022-08-27T22:52:20.189383+00:00'
+pattern: true
+resources: {}

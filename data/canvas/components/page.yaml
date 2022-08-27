@@ -1,5 +1,6 @@
 id: page
 name: Page
+permissions: []
 icon: file-document
 parameters:
   - id: pageMetaTitle
@@ -21,7 +22,22 @@ parameters:
     name: Show in Footer Nav
     type: checkbox
     typeConfig: null
+  - id: currentProduct
+    name: Resolve current product from current slug
+    type: salesforce-cc-prd-comp-signal
+    helpText: >-
+      This signals to retrieve product detail object using product id from the
+      current URL
+    typeConfig: null
+useTeamPermissions: true
 slots:
+  - id: header
+    name: Header
+    maxComponents: 1
+    minComponents: 0
+    allowedComponents:
+      - headerNavigation
+    inheritAllowedComponents: false
   - id: content
     name: Content
     allowedComponents:
@@ -38,8 +54,10 @@ slots:
       - $personalization
       - $test
       - $localization
+      - dynamicProductList
+      - productRecommendations
     inheritAllowedComponents: false
 titleParameter: pageMetaTitle
 canBeComposition: true
-created: '2022-01-23T19:56:14.428264+00:00'
-updated: '2022-03-11T02:09:16.785579+00:00'
+created: '2022-08-27T18:35:24.288051+00:00'
+updated: '2022-08-27T21:00:26.73855+00:00'

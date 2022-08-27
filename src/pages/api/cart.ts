@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { serialize } from 'cookie';
 import { AddCartItemsRequest, DeleteCartItemRequest, PutCartItemRequest } from '@/typings/cartTypes';
-import { bigCommerceRootUrl, bigCommerceRequestHeaders } from '@/utils/bigCommerce/constants';
+import { commerceRootUrl, commerceRequestHeaders } from '@/utils/commerce';
 
 const CART_ID_COOKIE_NAME = 'cartId';
 
@@ -11,21 +11,21 @@ const constructCartItemsUrl = ({ cartId, itemId }: { cartId: string | undefined;
 
   if (hasCartIdCookie) {
     if (hasItemId) {
-      return `${bigCommerceRootUrl}carts/${cartId}/items/${itemId}?include=redirect_urls`;
+      return `${commerceRootUrl}carts/${cartId}/items/${itemId}?include=redirect_urls`;
     }
-    return `${bigCommerceRootUrl}carts/${cartId}/items?include=redirect_urls`;
+    return `${commerceRootUrl}carts/${cartId}/items?include=redirect_urls`;
   }
   // If there is no cartId cookie when adding cart items, resort to creating the cart
-  return `${bigCommerceRootUrl}carts?include=redirect_urls`;
+  return `${commerceRootUrl}carts?include=redirect_urls`;
 };
 
 const constructCartUrl = ({ cartId }: { cartId: string | undefined }) => {
   const hasCartIdCookie = typeof cartId !== 'undefined';
 
   if (hasCartIdCookie) {
-    return `${bigCommerceRootUrl}carts/${cartId}?include=redirect_urls`;
+    return `${commerceRootUrl}carts/${cartId}?include=redirect_urls`;
   }
-  return `${bigCommerceRootUrl}carts?include=redirect_urls`;
+  return `${commerceRootUrl}carts?include=redirect_urls`;
 };
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -68,7 +68,8 @@ const handlePut = async (req: NextApiRequest, res: NextApiResponse) => {
     body: JSON.stringify({
       line_item: body.line_item,
     }),
-    headers: bigCommerceRequestHeaders,
+    // @ts-ignore
+    headers: commerceRequestHeaders,
   });
 
   const json = await response.json();
@@ -93,7 +94,8 @@ const handleDelete = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const response = await fetch(endpoint, {
     method: 'delete',
-    headers: bigCommerceRequestHeaders,
+    // @ts-ignore
+    headers: commerceRequestHeaders,
   });
 
   if (response.status === 204) {
@@ -120,7 +122,8 @@ const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const response = await fetch(endpoint, {
     method: 'get',
-    headers: bigCommerceRequestHeaders,
+    // @ts-ignore
+    headers: commerceRequestHeaders,
   });
 
   try {
@@ -148,7 +151,8 @@ const handlePost = async (req: NextApiRequest, res: NextApiResponse) => {
   const response = await fetch(endpoint, {
     method: 'post',
     body: JSON.stringify(body),
-    headers: bigCommerceRequestHeaders,
+    // @ts-ignore
+    headers: commerceRequestHeaders,
   });
 
   const json: { data?: { id: string | undefined } } = await response.json();

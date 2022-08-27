@@ -4,34 +4,22 @@ composition:
   _name: Product Category
   _slug: product-category
   slots:
+    header:
+      - _id: 7036a926-8f38-4487-821f-e3bb7f742b3d
+        type: headerNavigation
+        _pattern: 5489387d-34dc-46a7-9a04-97d49facbaf3
     content:
-      - type: callToAction
-        variant: fullWidth
+      - _id: 2465e43a-3943-4ab5-ae64-21456d1c5341
+        type: currentCategoryProductList
         parameters:
-          text:
-            type: text
-            value: >-
-              Quisque sit amet turpis neque. Aenean cursus vulputate erat.
-              Nullam sagittis est feugiat maximus sagittis. Fusce euismod id dui
-              id auctor.
-          title:
-            type: text
-            value: Catchy title about these products
-      - type: currentCategoryProductList
-        parameters:
-          showFilters:
-            type: checkbox
-            value: true
-          showSorting:
-            type: checkbox
-            value: true
-          displayLimit:
+          currentCategoryProducts:
             type: number
-            value: '10'
+            value: '16'
   parameters:
     pageMetaTitle:
       type: text
       value: 'Unistore: Product Category Page'
-created: '2022-01-23T19:56:15.742041+00:00'
-modified: '2022-03-10T23:32:09.854334+00:00'
+created: '2022-08-27T18:35:26.178154+00:00'
+modified: '2022-08-27T21:17:23.708495+00:00'
 pattern: false
+resources: {}

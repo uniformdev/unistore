@@ -1,0 +1,31 @@
+id: navigationItem
+name: Navigation Item
+permissions: []
+icon: arrow-top-right-r
+parameters:
+  - id: linkTitle
+    name: Link Title
+    type: text
+    helpText: ''
+    typeConfig:
+      required: true
+  - id: link
+    name: Link
+    type: text
+    helpText: ''
+    typeConfig:
+      required: true
+useTeamPermissions: true
+slots:
+  - id: subnavItems
+    name: Subnav Items
+    allowedComponents:
+      - navigationItem
+      - promo
+      - $personalization
+      - $test
+    inheritAllowedComponents: false
+titleParameter: linkTitle
+canBeComposition: false
+created: '2022-08-27T21:01:23.723138+00:00'
+updated: '2022-08-27T22:26:53.080173+00:00'

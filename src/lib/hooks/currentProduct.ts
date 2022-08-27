@@ -1,5 +1,5 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
-const CurrentProductContext = createContext(undefined);
+const CurrentProductContext = createContext<any>(undefined);
 
 export default CurrentProductContext;

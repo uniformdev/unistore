@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetStaticPaths, GetStaticPropsContext } from 'next';
+import type { GetStaticPaths, GetStaticPropsContext } from 'next';
 import { getCategoryComposition } from '@/lib/canvasClient';
 import CommonPageContainer from '@/components/containers/CommonContainer';
 import { getCategoryPaths } from '@/lib/sitemap';
@@ -20,7 +20,7 @@ export default function CategoryPage({
         categoryName,
       }}
     >
-      <CommonPageContainer composition={composition} preview={preview} topNavCategoryLinks={[]} />;
+      <CommonPageContainer composition={composition} preview={preview} />;
     </CurrentCategoryContext.Provider>
   );
 }

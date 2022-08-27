@@ -1,5 +1,6 @@
 id: featureItem
 name: Feature Item
+permissions: []
 icon: danger
 parameters:
   - id: icon
@@ -14,8 +15,9 @@ parameters:
     typeConfig:
       required: true
       multiline: true
+useTeamPermissions: true
 slots: []
 titleParameter: text
 canBeComposition: false
-created: '2022-01-23T19:56:14.453174+00:00'
-updated: '2022-01-23T19:56:14.453174+00:00'
+created: '2022-08-27T18:35:23.510971+00:00'
+updated: '2022-08-27T18:35:23.510971+00:00'

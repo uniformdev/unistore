@@ -1,7 +1,7 @@
 export const sfccModelConverter = ({ parameter }: any) => {
   const productData = parameter.value;
   if (Array.isArray(productData)) {
-    return productData.map((p) => transformProduct(p));
+    return productData.map(p => transformProduct(p));
   } else {
     return transformProduct(productData);
   }
@@ -17,7 +17,7 @@ export function transformProduct(product: any) {
       return product;
     }
 
-    const productImages = product.imageGroups[0]?.images?.map((i) => {
+    const productImages = product.imageGroups[0]?.images?.map((i: any) => {
       return { src: i.disBaseLink, alt: i.alt };
     });
 
@@ -31,30 +31,26 @@ export function transformProduct(product: any) {
     }
 
     //processing colors
-    const colorDefinitions = product.variationAttributes?.find(
-      (a) => a.id === "color"
-    )?.values;
+    const colorDefinitions = product.variationAttributes?.find((a: any) => a.id === 'color')?.values;
     const colorMap = new Map();
     if (colorDefinitions) {
-      colorDefinitions.forEach((c) => colorMap.set(c.value, c.name));
+      colorDefinitions.forEach((c: any) => colorMap.set(c.value, c.name));
     }
-    const productColors = [];
-    product.variants?.forEach((v) => {
+    const productColors: Array<any> = [];
+    product.variants?.forEach((v: any) => {
       const color = colorMap.get(v.variationValues.color);
       if (color) {
         productColors.push(color);
       }
     });
     //processing sizes
-    const sizeDefinitions = product.variationAttributes.find(
-      (a) => a.id === "size"
-    )?.values;
+    const sizeDefinitions = product.variationAttributes.find((a: any) => a.id === 'size')?.values;
     const sizeMap = new Map();
     if (sizeDefinitions) {
-      sizeDefinitions.forEach((c) => sizeMap.set(c.value, c.name));
+      sizeDefinitions.forEach((c: any) => sizeMap.set(c.value, c.name));
     }
-    const productSizes = [];
-    product.variants.forEach((v) => {
+    const productSizes: Array<any> = [];
+    product.variants.forEach((v: any) => {
       const size = sizeMap.get(v.variationValues.size);
       if (size) {
         productSizes.push();

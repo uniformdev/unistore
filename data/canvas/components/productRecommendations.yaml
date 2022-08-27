@@ -1,0 +1,22 @@
+id: productRecommendations
+name: Product Recommendations
+permissions: []
+icon: bulb
+parameters:
+  - id: title
+    name: Title
+    type: text
+    helpText: ''
+    typeConfig:
+      required: true
+  - id: products
+    name: Products
+    type: salesforce-cc-einstein
+    helpText: ''
+    typeConfig: null
+useTeamPermissions: true
+slots: []
+titleParameter: title
+canBeComposition: false
+created: '2022-08-27T18:43:29.944678+00:00'
+updated: '2022-08-27T18:43:39.662145+00:00'

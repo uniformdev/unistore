@@ -6,7 +6,7 @@ import HeaderLogo from '@/components/Navigation/components/Logo';
 import HamburgerIcon from '@/components/atoms/Icons/HamburgerIcons';
 import { hiddenScroll } from '@/utils/scroll';
 import CloseIcon from '@/atoms/Icons/CloseIcons';
-import { Themes } from '@/utils/navUtils';
+import { Themes } from '@/utils/themes';
 import { Slot } from '@uniformdev/canvas-react';
 
 const Navbar = () => {

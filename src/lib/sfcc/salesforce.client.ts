@@ -1,32 +1,23 @@
-import { IntegrationSettings, QueryClient } from "./types";
-import type { Search, Product } from "commerce-sdk";
-import { ProductSearchResult } from "@uniformdev/mesh-sdk-react";
+import { IntegrationSettings, QueryClient } from './types';
+import type { Search, Product } from 'commerce-sdk';
 
-const mapProductToSearchResult = (
-  product: Product.ShopperProducts.Product
-): ProductSearchResult => {
+const mapProductToSearchResult = (product: Product.ShopperProducts.Product) => {
   return {
     id: product.id,
-    title: product.name ?? "Untitled",
-    thumbnailUrl: product.imageGroups?.find(
-      (group) => group.viewType === "small"
-    )?.images?.[0].link,
+    title: product.name ?? 'Untitled',
+    thumbnailUrl: product.imageGroups?.find(group => group.viewType === 'small')?.images?.[0].link,
     sku: product.manufacturerSku ?? product.id,
     price: `${product.price} (${product.currency})`,
   };
 };
 
-export const makeSalesforceClient = ({
-  settings,
-}: {
-  settings: IntegrationSettings;
-}): QueryClient => {
+export const makeSalesforceClient = ({ settings }: { settings: IntegrationSettings }): QueryClient => {
   return {
     getProducts: async ({ text, options = {} }) => {
-      const results = await fetch("/api/salesforce/products", {
-        method: "POST",
+      const results = await fetch('/api/salesforce/products', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           text,
@@ -37,31 +28,28 @@ export const makeSalesforceClient = ({
           ...settings,
         }),
       }).then(
-        (res) =>
+        res =>
           res.json() as Promise<{
-            products: Product.ShopperProducts.ProductResult["data"];
-            total: Search.ShopperSearch.ProductSearchResult["total"];
+            products: Product.ShopperProducts.ProductResult['data'];
+            total: Search.ShopperSearch.ProductSearchResult['total'];
           }>
       );
 
       return {
         total: results.total,
         products: options.variants
-          ? results.products.reduce((acc, product): ProductSearchResult[] => {
-              if (
-                product.variants === undefined ||
-                product.variants.length === 0
-              ) {
+          ? results.products.reduce((acc: any, product: any) => {
+              if (product.variants === undefined || product.variants.length === 0) {
                 return [...acc, mapProductToSearchResult(product)];
               }
 
               return [
                 ...acc,
-                ...product.variants.map((variant) => {
+                ...product.variants.map((variant: any) => {
                   return {
                     ...mapProductToSearchResult(product),
                     id: variant.productId,
-                    title: product.name ?? "Untitled",
+                    title: product.name ?? 'Untitled',
                     sku: variant.productId,
                     metadata: {
                       variantId: variant.productId,
@@ -70,57 +58,57 @@ export const makeSalesforceClient = ({
                   };
                 }),
               ];
-            }, [] as ProductSearchResult[])
+            }, [])
           : results.products.map(mapProductToSearchResult),
       };
     },
     getExactProducts: async ({ ids }) => {
-      const results = await fetch("/api/salesforce/products", {
-        method: "POST",
+      const results = await fetch('/api/salesforce/products', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           ids,
           ...settings,
         }),
       }).then(
-        (res) =>
+        res =>
           res.json() as Promise<{
-            products: Product.ShopperProducts.ProductResult["data"];
+            products: Product.ShopperProducts.ProductResult['data'];
           }>
       );
 
       return results.products.map(mapProductToSearchResult);
     },
     getCategories: async () => {
-      const results = await fetch("/api/salesforce/categories", {
-        method: "POST",
+      const results = await fetch('/api/salesforce/categories', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(settings),
       }).then(
-        (res) =>
+        res =>
           res.json() as Promise<{
             categories: Product.ShopperProducts.Category[];
           }>
       );
 
-      return results.categories.map((category) => ({
+      return results.categories.map(category => ({
         id: category.id,
-        name: category.name ?? "Untitled",
+        name: category.name ?? 'Untitled',
       }));
     },
     getRecommenders: async () => {
-      const results = await fetch("/api/salesforce/einstein", {
-        method: "POST",
+      const results = await fetch('/api/salesforce/einstein', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(settings),
       }).then(
-        (res) =>
+        res =>
           res.json() as Promise<{
             recommenders: {
               name: string;
@@ -133,10 +121,10 @@ export const makeSalesforceClient = ({
       return results.recommenders ?? [];
     },
     getRecommendations: async ({ recommender, context }) => {
-      const results = await fetch("/api/salesforce/einstein-preview", {
-        method: "POST",
+      const results = await fetch('/api/salesforce/einstein-preview', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           recommender,
@@ -144,9 +132,9 @@ export const makeSalesforceClient = ({
           ...settings,
         }),
       }).then(
-        (res) =>
+        res =>
           res.json() as Promise<{
-            products: Product.ShopperProducts.ProductResult["data"];
+            products: Product.ShopperProducts.ProductResult['data'];
           }>
       );
 

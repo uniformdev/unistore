@@ -1,5 +1,6 @@
 id: featuredProducts
 name: Featured Products
+permissions: []
 icon: shopping-bag
 parameters:
   - id: title
@@ -17,11 +18,14 @@ parameters:
     typeConfig: null
   - id: products
     name: Products
-    type: bigcommerceProductQuery
+    type: salesforce-cc-product-selector
+    helpText: ''
     typeConfig:
-      required: true
+      variant: false
+      multiple: true
+useTeamPermissions: true
 slots: []
 titleParameter: title
 canBeComposition: false
-created: '2022-01-23T19:56:14.440168+00:00'
-updated: '2022-01-23T19:56:14.440168+00:00'
+created: '2022-08-27T18:35:24.168396+00:00'
+updated: '2022-08-27T18:40:00.21766+00:00'

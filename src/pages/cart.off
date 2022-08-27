@@ -1,0 +1,18 @@
+import React from 'react';
+import type { NextPage } from 'next';
+import Navbar from '@/components/Navigation/Header';
+import Footer from '@/components/Navigation/Footer';
+import ShoppingCart from '@/components/ShoppingCart';
+import { NavLinkProp } from '@/components/atoms/NavLink';
+
+const ShoppingCartPage: NextPage<{
+  topNavCategoryLinks: Array<NavLinkProp>;
+}> = () => (
+  <>
+    <Navbar />
+    <ShoppingCart />
+    <Footer />
+  </>
+);
+
+export default ShoppingCartPage;

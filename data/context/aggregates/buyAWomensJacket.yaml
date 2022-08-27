@@ -1,0 +1,13 @@
+id: buyAWomensJacket
+name: Buy a women's jacket
+description: ''
+type: 1
+inputs:
+  - dim: cartWomensJackets
+    sign: +
+  - dim: cat_womens
+    sign: +
+  - dim: cat_jackets
+    sign: +
+  - dim: cat_clothing
+    sign: +

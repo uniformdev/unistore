@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetStaticPaths, GetStaticPropsContext } from 'next';
+import type { GetStaticPaths, GetStaticPropsContext } from 'next';
 import { getProductDetailComposition } from '@/lib/canvasClient';
 import { getProductPaths } from '@/lib/sitemap';
 import CurrentProductContext from '@/lib/hooks/currentProduct';
@@ -10,7 +10,7 @@ export default function ProductDetailPage({ composition, preview }: { compositio
   const { currentProduct } = parameters || {};
   return (
     <CurrentProductContext.Provider value={currentProduct?.value}>
-      <CommonPageContainer composition={composition} preview={preview} topNavCategoryLinks={[]} />
+      <CommonPageContainer composition={composition} preview={preview} />
     </CurrentProductContext.Provider>
   );
 }

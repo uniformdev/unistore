@@ -1,5 +1,6 @@
 id: hero
 name: Hero
+permissions: []
 icon: board
 parameters:
   - id: title
@@ -18,11 +19,12 @@ parameters:
     typeConfig:
       required: true
       multiline: true
+useTeamPermissions: true
 slots: []
 titleParameter: title
 canBeComposition: false
-created: '2022-01-23T19:56:14.392763+00:00'
-updated: '2022-01-23T19:56:14.392763+00:00'
+created: '2022-08-27T18:35:24.323994+00:00'
+updated: '2022-08-27T18:35:24.323994+00:00'
 variants:
   - id: fullWidth
     name: Full Width

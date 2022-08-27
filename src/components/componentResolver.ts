@@ -9,7 +9,6 @@ import CallToActionFullWidth from '@/components/CallToActions/CallToActionFullWi
 import CallToActionMini from '@/components/CallToActions/CallToActionMini';
 import HeroFullWidth from '@/components/Hero/HeroFullWidth';
 import HeroImageRight from '@/components/Hero/HeroImageRight';
-import ContactForm from '@/components/ContactForm';
 import ProductCatalog from '@/components/ProductCatalog';
 import ProductImageGallery from '@/components/ProductImageGallery';
 import ProductInfo from '@/components/ProductInfo';
@@ -33,8 +32,6 @@ const componentMappings: ComponentMapping = {
   dynamicProductList: ProductsCarousel,
   productRecommendations: ProductsCarousel,
   featureItem: FeatureItem,
-  contactForm: ContactForm,
-  productCatalog: ProductCatalog,
   currentCategoryProductList: ProductCatalog,
   productImageGallery: ProductImageGallery,
   productInfo: ProductInfo,

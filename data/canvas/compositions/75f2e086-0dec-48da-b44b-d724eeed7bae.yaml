@@ -4,31 +4,47 @@ composition:
   _name: Product Detail
   _slug: product-detail
   slots:
+    header:
+      - _id: 9d859bd3-f0dc-48ff-a155-804de8ccf125
+        type: headerNavigation
+        _pattern: 5489387d-34dc-46a7-9a04-97d49facbaf3
     content:
-      - type: container
+      - _id: 9a4c2e49-6182-466a-9f74-102f3287b420
+        type: container
         slots:
           left:
-            - type: productImageGallery
-              parameters: {}
+            - _id: ec7b6b6a-1918-4d64-b91b-83911caeea23
+              type: productImageGallery
           right:
-            - type: productInfo
-              parameters: {}
+            - _id: b0d3c2fd-0898-4c63-be62-403ac96ed7a5
+              type: productInfo
         variant: productDetail
-        parameters: {}
-      - type: productDescription
+      - _id: 38e2dd31-430a-4abf-ad6b-42ef03aeb27a
+        type: productDescription
         parameters:
           title:
             type: text
             value: About this product
-      - type: relatedProducts
+      - _id: 7d583817-b5bd-4b59-ad4c-43eac9a72f92
+        type: productRecommendations
         parameters:
           title:
             type: text
-            value: Explore related products
+            value: Recently Viewed Components
+          products:
+            type: salesforce-cc-einstein
+            value:
+              context: {}
+              recommender: viewed-recently-einstein
   parameters:
     pageMetaTitle:
       type: text
       value: 'Unistore: Product Detail'
-created: '2022-01-23T19:56:15.623086+00:00'
-modified: '2022-01-23T19:56:15.623086+00:00'
+    currentProduct:
+      type: salesforce-cc-prd-comp-signal
+      value:
+        value: true
+created: '2022-08-27T18:35:26.239866+00:00'
+modified: '2022-08-27T21:17:52.670124+00:00'
 pattern: false
+resources: {}

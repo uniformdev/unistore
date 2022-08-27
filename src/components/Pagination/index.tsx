@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import { useTheme } from 'next-themes';
 import { DOTS, usePagination } from '@/hooks/usePagination';
 import ActionButton from '@/atoms/ActionButton';
-import { Themes } from '@/utils/navUtils';
+import { Themes } from '@/utils/themes';
 import TogglePageButton, { ArrowPosition } from '@/atoms/TogglePageButton';
 
 type Props = {

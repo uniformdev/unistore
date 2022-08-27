@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useCartContext } from '@/context/CartProvider';
-import { Themes } from '@/utils/navUtils';
+import { Themes } from '@/utils/themes';
 
 const HeaderCart = () => {
   const { cartAmount } = useCartContext();
@@ -13,7 +13,7 @@ const HeaderCart = () => {
       <div className="flex items-center cursor-pointer">
         {cartAmount !== 0 && (
           <a className="navbar-item font-extrabold font-overpass">
-            <span className="bigcommerce-cart__item-count full">{cartAmount}</span>
+            <span>{cartAmount}</span>
           </a>
         )}
         <div className="pl-2">

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ProductResult } from '@uniformdev/canvas-bigcommerce';
 import ActionButton, { ActionButtonProps } from '@/components/atoms/ActionButton';
 import { useCartContext } from '@/context/CartProvider';
 
@@ -9,7 +8,7 @@ enum ButtonStates {
 }
 
 export type ButtonAddToCartProps = {
-  product: ProductResult;
+  product: any;
   quantity?: number;
 };
 

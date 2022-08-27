@@ -2,12 +2,12 @@ import React, { useState, useContext } from 'react';
 import Image from 'next/image';
 import cx from 'classnames';
 import CurrentProductContext from '@/lib/hooks/currentProduct';
-import NoImage from '../../../public/img/no-image.svg';
+import NoImage from '@/public/img/no-image.svg';
 
 const ProductImageGallery = () => {
   const product = useContext(CurrentProductContext);
   if (!product) return null;
-  const { images } = product || {};
+  const images: Array<any> = product.images;
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   if (!images || images.length <= 0) {
     return null;
