@@ -54,7 +54,7 @@
     "@types/lodash": "^4.14.178",
     "@uniformdev/canvas": "^17.1.0",
     "@uniformdev/canvas-react": "^17.1.0",
-    "@uniformdev/canvas-salesforce-commerce-cloud": "17.0.1-alpha.9",
+    "@uniformdev/canvas-salesforce-commerce-cloud": "17.0.1-alpha.10",
     "@uniformdev/cli": "^17.1.0",
     "@uniformdev/context": "^17.1.0",
     "@uniformdev/context-devtools": "^17.1.0",
