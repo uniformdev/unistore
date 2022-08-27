@@ -2,15 +2,14 @@ import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import HeaderCart from '@/components/Navigation/components/Cart';
-import HeaderNav from '@/components/Navigation/components/HeaderNav';
 import HeaderLogo from '@/components/Navigation/components/Logo';
 import HamburgerIcon from '@/components/atoms/Icons/HamburgerIcons';
-import { NavLinkProp } from '@/components/atoms/NavLink';
 import { hiddenScroll } from '@/utils/scroll';
 import CloseIcon from '@/atoms/Icons/CloseIcons';
 import { Themes } from '@/utils/navUtils';
+import { Slot } from '@uniformdev/canvas-react';
 
-const Navbar = ({ topNavCategoryLinks }: { topNavCategoryLinks: Array<NavLinkProp> }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleIsOpen = React.useCallback(() => setIsOpen(!isOpen), [isOpen]);
   const router = useRouter();
@@ -41,7 +40,7 @@ const Navbar = ({ topNavCategoryLinks }: { topNavCategoryLinks: Array<NavLinkPro
       >
         <div className="flex">
           <HeaderLogo />
-          <HeaderNav categoryLinks={topNavCategoryLinks} />
+          <Slot name="header" />
         </div>
         <HeaderCart />
       </div>
@@ -64,7 +63,7 @@ const Navbar = ({ topNavCategoryLinks }: { topNavCategoryLinks: Array<NavLinkPro
       <div className="lg:hidden">
         {isOpen && (
           <div className="absolute bg-white dark:bg-gray-800 flex flex-col items-center w-full header_footer_container--mobile pt-16">
-            <HeaderNav categoryLinks={topNavCategoryLinks} />
+            <Slot name="header" />
           </div>
         )}
       </div>

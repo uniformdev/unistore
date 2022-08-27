@@ -3,7 +3,6 @@ import Image from 'next/image';
 import getConfig from 'next/config';
 import { ToggleEmbeddedContextDevTools } from '@uniformdev/context-devtools';
 import FooterLogo, { LogoPosition } from '@/components/Navigation/components/Logo';
-import FooterNav from '../components/FooterNav';
 
 const { serverRuntimeConfig } = getConfig();
 const { projectId, apiKey, apiHost } = serverRuntimeConfig;
@@ -15,7 +14,6 @@ const Footer = () => (
         <div className="w-48 lg:pb-0 pb-8">
           <FooterLogo contentPosition={LogoPosition.footer} />
         </div>
-        <FooterNav />
       </div>
       <div className="flex flex-row justify-center lg:pb-0 pb-2">
         <a className="rounded-full bg-white w-8 h-8 mx-2 flex items-center justify-center" href="https://facebook.com">

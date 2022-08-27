@@ -8,7 +8,6 @@ export type RelatedProductsProps = {
 };
 
 const RelatedProducts = ({ title, products }: RelatedProductsProps) => {
-  console.log({ products });
   return (
     <div className="mt-36">
       <div className="border-t-2 flex">

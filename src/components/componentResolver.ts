@@ -19,6 +19,7 @@ import ContainerProductDetail from './containers/ContainerProductDetail';
 import ContainerEqualHalf from '@/components/containers/ContainerEqualHalf';
 import Container2313 from './containers/Container23-13';
 import Container1323 from './containers/Container13-23';
+import HeaderNav, { TopNavLink } from './Navigation/components/HeaderNav';
 
 const componentMappings: ComponentMapping = {
   hero: HeroFullWidth,
@@ -44,6 +45,8 @@ const componentMappings: ComponentMapping = {
   containerEqualHalf: ContainerEqualHalf,
   'container23-13': Container2313,
   'container13-23': Container1323,
+  headerNavigation: HeaderNav,
+  navigationItem: TopNavLink,
 };
 
 type ComponentMapping = Record<string, ComponentType<any>>;

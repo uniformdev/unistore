@@ -19,11 +19,13 @@ const CommonContainer = ({
   topNavCategoryLinks: Array<NavLinkProp>;
 }) => (
   <>
-    <Navbar topNavCategoryLinks={topNavCategoryLinks} />
     {composition ? (
-      <Composition behaviorTracking="onLoad" data={composition}>
+      <Composition behaviorTracking="onLoad" data={composition} resolveRenderer={componentResolver}>
+        <Navbar topNavCategoryLinks={topNavCategoryLinks}>
+          {/* <Slot name="header" /> */}
+        </Navbar>
         <div className="body_container">
-          <Slot name="content" resolveRenderer={componentResolver} />
+          <Slot name="content" />
         </div>
       </Composition>
     ) : null}
