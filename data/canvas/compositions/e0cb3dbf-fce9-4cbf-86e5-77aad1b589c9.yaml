@@ -14,12 +14,12 @@ composition:
         parameters:
           currentCategoryProducts:
             type: number
-            value: '16'
+            value: '12'
   parameters:
     pageMetaTitle:
       type: text
       value: 'Unistore: Product Category Page'
 created: '2022-08-27T18:35:26.178154+00:00'
-modified: '2022-08-27T21:17:23.708495+00:00'
+modified: '2022-08-28T00:43:29.522529+00:00'
 pattern: false
 resources: {}

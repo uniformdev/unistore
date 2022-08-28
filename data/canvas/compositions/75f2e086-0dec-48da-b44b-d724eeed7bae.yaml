@@ -30,7 +30,7 @@ composition:
         parameters:
           title:
             type: text
-            value: Recently Viewed Components
+            value: Recently Viewed Products
           products:
             type: salesforce-cc-einstein
             value:
@@ -45,6 +45,6 @@ composition:
       value:
         value: true
 created: '2022-08-27T18:35:26.239866+00:00'
-modified: '2022-08-27T21:17:52.670124+00:00'
+modified: '2022-08-28T00:42:47.136568+00:00'
 pattern: false
 resources: {}
