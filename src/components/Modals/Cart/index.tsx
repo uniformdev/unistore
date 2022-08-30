@@ -88,8 +88,14 @@ const CartContent = () => {
               </div>
             </div>
             <div className=" mt-12 flex-row">
-              <form action={redirectUrls.checkout_url} method="post" encType="multipart/form-data" target="_blank">
+              <form
+                action={redirectUrls?.checkout_url || '/'}
+                method="post"
+                encType="multipart/form-data"
+                target="_blank"
+              >
                 <ActionButton
+                  disabled={!redirectUrls?.checkout_url}
                   type="submit"
                   width="w-full"
                   className="border-4 border-orange_border mt-5 h-10 w-full lg:mb-32"

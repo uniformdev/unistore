@@ -1,16 +1,15 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { BrandResult, CategoryResult, ProductResult } from '@uniformdev/canvas-bigcommerce';
+import { BrandResult, CategoryResult } from '@uniformdev/canvas-bigcommerce';
 import Image from 'next/image';
 import debounce from 'lodash/debounce';
 import ProductItem from '@/components/ProductItem';
-import { filterQuery, getBrandPath, getCategoryPath, getPageNumber, useSearchMeta } from '@/utils/search';
 import Dropdown from '@/atoms/Dropdown';
-import ProductsAccessor, { PaginationType } from '@/utils/bigCommerce/ProductsAccessor';
 import EmptyContent from '@/atoms/EmptyContent';
 import Pagination from '@/components/Pagination';
-import { bigCommerceConfig } from '@/utils/bigCommerce/constants';
+import { filterQuery, getBrandPath, getCategoryPath, getPageNumber, useSearchMeta } from '@/utils/search';
+import { getPaginatedProducts } from '@/utils/commerce';
 
 export type ProductCatalogProps = {
   categories?: CategoryResult[];
@@ -32,8 +31,8 @@ const ProductCatalog = ({ showFilters, categories, brands }: ProductCatalogProps
   const searchInput = useRef<any>(null);
   const [isDropdownOpened, setDropdownOpened] = useState(false);
   const [searchValue, setSearchValue] = useState('');
-  const [products, setProducts] = useState<ProductResult[]>([]);
-  const [pagination, setPagination] = useState<PaginationType | null>(null);
+  const [products, setProducts] = useState<Type.Product[]>([]);
+  const [total, setTotal] = useState<number | null>(null);
   const router = useRouter();
   const { asPath, push } = router;
   const { q, sort, notAll } = router.query;
@@ -59,29 +58,28 @@ const ProductCatalog = ({ showFilters, categories, brands }: ProductCatalogProps
     const keyword = event?.target?.value || '';
     setSearchValue(keyword);
     setIsLoaded(true);
-    const searchProducts = await ProductsAccessor.getProducts(
+
+    const res = await getPaginatedProducts({
       keyword,
-      activeCategory?.id?.toString() || '',
-      activeBrand?.id?.toString() || '',
+      category: activeCategory?.id?.toString() || '',
+      brand: activeBrand?.id?.toString() || '',
       page,
-      sort
+      params: sort,
+    });
+
+    scrollUp();
+    setIsLoaded(false);
+    setProducts(res.data);
+    setTotal(res.total);
+
+    return push(
+      {
+        pathname: pathname.toString(),
+        query: { ...query, page: page > res.total || page < 1 ? 1 : page },
+      },
+      undefined,
+      { scroll: false, shallow: true }
     );
-    if (searchProducts.pagination) {
-      const { pagination: paginationWithRequest, data } = searchProducts;
-      scrollUp();
-      setIsLoaded(false);
-      setProducts(data);
-      setPagination(paginationWithRequest);
-      return push(
-        {
-          pathname: pathname.toString(),
-          query: { ...query, page: page > paginationWithRequest?.totalPages || page < 1 ? 1 : page },
-        },
-        undefined,
-        { scroll: false, shallow: true }
-      );
-    }
-    return false;
   };
 
   const onChangeSearch = useMemo(() => debounce(getProducts, AWAIT), [sort, brand, category, page]);
@@ -99,17 +97,8 @@ const ProductCatalog = ({ showFilters, categories, brands }: ProductCatalogProps
 
   useEffect(() => {
     if (brand || category || page) {
-      if (searchInput.current) {
-        searchInput.current.value = '';
-      }
-      push(
-        {
-          pathname: pathname.toString(),
-          query: { ...query, page },
-        },
-        undefined,
-        { scroll: false, shallow: true }
-      );
+      if (searchInput.current) searchInput.current.value = '';
+      push({ pathname: pathname.toString(), query: { ...query, page } }, undefined, { scroll: false, shallow: true });
       getProducts();
     }
   }, [sort, brand, category, page]);
@@ -117,9 +106,7 @@ const ProductCatalog = ({ showFilters, categories, brands }: ProductCatalogProps
   useEffect(() => onChangeSearch.cancel());
 
   const scrollUp = useCallback(() => {
-    if (document) {
-      document.documentElement.scrollTop = 0;
-    }
+    if (document) document.documentElement.scrollTop = 0;
   }, []);
 
   const toggleDropdown = useCallback(() => {
@@ -231,12 +218,7 @@ const ProductCatalog = ({ showFilters, categories, brands }: ProductCatalogProps
               <EmptyContent title="Sorry there are no products for this filter" isLoad={isLoaded} />
             )}
           </div>
-          <Pagination
-            currentPage={pagination?.currentPage || 1}
-            onPageChange={setPage}
-            totalCount={pagination?.total || 0}
-            pageSize={Number(bigCommerceConfig.apiProductLimit)}
-          />
+          <Pagination currentPage={page || 1} onPageChange={setPage} totalCount={total || 0} pageSize={9} />
         </div>
       </div>
     </div>

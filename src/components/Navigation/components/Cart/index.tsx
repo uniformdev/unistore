@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useCartContext } from '@/context/CartProvider';
-import { Themes } from '@/utils/navUtils';
+import { Themes } from '@/constants';
 
 const HeaderCart = () => {
   const { cartAmount } = useCartContext();

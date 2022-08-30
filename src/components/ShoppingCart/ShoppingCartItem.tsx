@@ -28,8 +28,11 @@ const ShoppingCartItem: React.FC<Props> = ({ product }) => {
   }, [product.quantity, update]);
 
   const handleRemoveProductButtonClick = useCallback(() => {
-    remove(product.id);
-  }, [product.id, remove]);
+    remove(product.id, {
+      product_id: product.product_id,
+      variant_id: product.variant_id,
+    });
+  }, [product.id, product.product_id, product.variant_id, remove]);
 
   return (
     <tr className="border-b">

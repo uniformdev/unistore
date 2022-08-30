@@ -4,6 +4,11 @@ export type AddCartItem = {
   variant_id: number;
 };
 
+export type DeleteCartItem = {
+  product_id: number;
+  variant_id: number;
+};
+
 export type AddCartItemsRequest = {
   line_items: AddCartItem[] | undefined;
 };
@@ -44,4 +49,5 @@ export type PutCartItemRequest = {
 
 export type DeleteCartItemRequest = {
   item_id: string;
+  line_item: DeleteCartItem;
 };

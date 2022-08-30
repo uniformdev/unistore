@@ -2,8 +2,8 @@ import React, { useCallback, useMemo } from 'react';
 import { useTheme } from 'next-themes';
 import { DOTS, usePagination } from '@/hooks/usePagination';
 import ActionButton from '@/atoms/ActionButton';
-import { Themes } from '@/utils/navUtils';
 import TogglePageButton, { ArrowPosition } from '@/atoms/TogglePageButton';
+import { Themes } from '@/constants';
 
 type Props = {
   onPageChange(pageNumber: number): void;

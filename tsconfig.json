@@ -11,8 +11,8 @@
       "@/context/*": ["./src/context/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/hooks/*": ["./src/hooks/*"],
-      "@/preval/*": ["./src/preval/*"],
-      "@/lib/*": ["./src/lib/*"]
+      "@/lib/*": ["./src/lib/*"],
+      "@/constants": ["./src/constants.ts"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

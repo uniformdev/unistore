@@ -2,9 +2,8 @@ import React from 'react';
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { enhance, RootComponentInstance } from '@uniformdev/canvas';
 import { createProductDetailEnhancers } from '@/utils/enhancers';
-import { getProducts } from '@/utils/bigCommerce';
-import { canvasClient, getState } from '@/utils/canvasClient';
-import { getTopNavCategoryLinks } from '@/utils/navUtils';
+import { canvasClient, getState } from '@/utils/canvas';
+import { getTopNavCategoryLinks, getProductsHash } from '@/utils/commerce';
 import { sluggify } from '@/utils/stringUtils';
 import { NavLinkProp } from '@/components/atoms/NavLink';
 import CommonPageContainer from '@/components/containers/CommonContainer';
@@ -16,7 +15,7 @@ const ProductDetail: NextPage<{
 }> = props => <CommonPageContainer {...props} />;
 
 export const getStaticProps: GetStaticProps<any> = async context => {
-  const productId = context.params?.id as string | undefined;
+  const productId = context.params?.id as number | undefined;
   const contextSlug = context.params?.slug as string | undefined;
   const { preview } = context;
   if (!contextSlug || !productId) {
@@ -33,7 +32,7 @@ export const getStaticProps: GetStaticProps<any> = async context => {
     state: getState(preview),
   });
 
-  const enhancers = createProductDetailEnhancers({ productId: productId as string });
+  const enhancers = createProductDetailEnhancers({ productId });
   await enhance({ composition, enhancers, context: { preview } });
 
   return {
@@ -46,8 +45,10 @@ export const getStaticProps: GetStaticProps<any> = async context => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const products = await getProducts();
-  const paths = products ? products.map((product: any) => `/products/${product.id}/${sluggify(product.name)}`) : [];
+  const productsHash = await getProductsHash();
+  const paths = productsHash
+    ? Object.values(productsHash).map((product: any) => `/products/${product.id}/${sluggify(product.name)}`)
+    : [];
   return {
     paths,
     fallback: false,

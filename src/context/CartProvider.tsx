@@ -3,17 +3,26 @@ import { useAsync } from 'react-use';
 import {
   AddCartItem,
   AddCartItemsRequest,
+  DeleteCartItem,
   DeleteCartItemRequest,
   GetCartResponse,
   PutCartItemRequest,
 } from '@/typings/cartTypes';
 import useCookie from '@/hooks/useCookie';
+import { getCartProducts, addToCart, updateCart, removeFromCart } from '@/utils/commerce';
 
 export type Cart = {
   numberItems: number;
   lineItems: GetCartResponse['data']['line_items'];
   cartAmount: GetCartResponse['data']['cart_amount'];
   redirectUrls: GetCartResponse['data']['redirect_urls'];
+};
+
+const cartAPI = {
+  getCartProducts,
+  addToCart,
+  updateCart,
+  removeFromCart,
 };
 
 export type CartContextProps = {
@@ -27,7 +36,7 @@ export type CartContextProps = {
 
   add: (productId: number, variantId: number, quantity?: number) => Promise<void>;
   update: (itemId: string, data: AddCartItem) => Promise<void>;
-  remove: (itemId: string) => Promise<void>;
+  remove: (itemId: string, data: DeleteCartItem) => Promise<void>;
   cartAmount: number;
   setModalOpen: (value: boolean) => void;
 };
@@ -41,7 +50,7 @@ export const CartContext = createContext<CartContextProps>({
   modalOpen: false,
   cart: undefined,
   currency: { code: 'USD' },
-  setModalOpen: value => undefined,
+  setModalOpen: () => undefined,
 
   add: () => Promise.resolve(),
   update: () => Promise.resolve(),
@@ -53,7 +62,7 @@ export const CartContextProvider: React.FC = ({ children }) => {
   const [cart, setCart] = useState<Cart>();
   const [cartQueue, setNewQueue] = useState<AddCartItem[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
-  const [cartSize, setCartSize, deleteCartSize] = useCookie('cartSize', null);
+  const [, setCartSize, deleteCartSize] = useCookie('cartSize', null);
 
   const [state, setState] = useState<Pick<CartContextProps, 'addingToCart' | 'updatingItem' | 'currency'>>({
     addingToCart: undefined,
@@ -76,18 +85,11 @@ export const CartContextProvider: React.FC = ({ children }) => {
   }, [cartAmount]);
 
   const { loading: cartLoading } = useAsync(async () => {
-    const response = await fetch(`/api/cart`, {
-      method: 'get',
-      credentials: 'same-origin',
-      mode: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    const json: GetCartResponse = await response.json();
-
-    setGetCartResponse(json);
+    const response = await cartAPI.getCartProducts();
+    if (response.ok) {
+      const json: GetCartResponse = await response.json();
+      setGetCartResponse(json);
+    }
   }, [refreshCart]);
 
   const setGetCartResponse = (json: GetCartResponse | undefined) => {
@@ -133,18 +135,10 @@ export const CartContextProvider: React.FC = ({ children }) => {
       ],
     };
 
-    const response = await fetch(`/api/cart`, {
-      method: 'post',
-      credentials: 'same-origin',
-      mode: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
+    const response = await cartAPI.addToCart(body);
+
     if (response.ok) {
       const json: GetCartResponse = await response.json();
-
       setGetCartResponse(json);
     }
     setNewQueue(
@@ -183,15 +177,7 @@ export const CartContextProvider: React.FC = ({ children }) => {
       line_item: data,
     };
 
-    const response = await fetch(`/api/cart`, {
-      method: 'put',
-      credentials: 'same-origin',
-      mode: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
+    const response = await cartAPI.updateCart(body);
 
     if (response.ok) {
       const json: GetCartResponse = await response.json();
@@ -212,20 +198,13 @@ export const CartContextProvider: React.FC = ({ children }) => {
     }));
   };
 
-  const remove = async (itemId: string) => {
+  const remove = async (itemId: string, data: DeleteCartItem) => {
     const body: DeleteCartItemRequest = {
       item_id: itemId,
+      line_item: data,
     };
 
-    const response = await fetch(`/api/cart`, {
-      method: 'delete',
-      credentials: 'same-origin',
-      mode: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
+    const response = await cartAPI.removeFromCart(body);
 
     if (response.status === 200) {
       const json: GetCartResponse = await response.json();

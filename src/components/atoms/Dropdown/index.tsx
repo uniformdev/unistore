@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import { Themes } from '@/utils/navUtils';
+import { Themes } from '@/constants';
 
 type DropdownProps = {
   title: string;
