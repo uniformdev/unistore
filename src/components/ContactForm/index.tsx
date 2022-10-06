@@ -74,7 +74,7 @@ const ContactForm = ({ successfulSubmitText, errorSubmitText, submitButtonText }
               <form
                 id={formName}
                 name={formName}
-                netlify-honeypot="bot-field"
+                data-netlify-honeypot="bot-field"
                 data-netlify="true"
                 method="POST"
                 className="mt-6 grid grid-cols-1 row-gap-6 sm:row-gap-3 col-gap-8"
