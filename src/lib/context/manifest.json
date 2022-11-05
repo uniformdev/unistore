@@ -7,26 +7,6 @@
         }
       },
       "sig": {
-        "shoppingCartActive": {
-          "str": 50,
-          "cap": 100,
-          "dur": "p",
-          "crit": {
-            "op": "&",
-            "type": "G",
-            "clauses": [
-              {
-                "type": "CK",
-                "match": {
-                  "cs": false,
-                  "op": "*",
-                  "rhs": ""
-                },
-                "cookieName": "cartSize"
-              }
-            ]
-          }
-        },
         "launchSpecial": {
           "str": 50,
           "cap": 100,
@@ -43,6 +23,26 @@
                   "rhs": "launch"
                 },
                 "queryName": "utm_campaign"
+              }
+            ]
+          }
+        },
+        "shoppingCartActive": {
+          "str": 50,
+          "cap": 100,
+          "dur": "p",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "type": "CK",
+                "match": {
+                  "cs": false,
+                  "op": "*",
+                  "rhs": ""
+                },
+                "cookieName": "cartSize"
               }
             ]
           }
