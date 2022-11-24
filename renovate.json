@@ -3,12 +3,13 @@
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
+      "excludePackagePatterns": ["^@uniformdev"],
       "enabled": false
     },
     {
       "matchPackagePatterns": ["^@uniformdev"],
-      "groupName": "Uniform",
-      "enabled": true
+      "groupName": "Uniform"
     }
-  ]
+  ],
+  "rangeStrategy": "bump"
 }
