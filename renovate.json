@@ -2,8 +2,13 @@
   "extends": ["config:base"],
   "packageRules": [
     {
-      "matchPackagePrefixes": ["@uniformdev"],
-      "groupName": "Uniform"
+      "matchPackagePatterns": ["*"],
+      "enabled": false
+    },
+    {
+      "matchPackagePatterns": ["^@uniformdev"],
+      "groupName": "Uniform",
+      "enabled": true
     }
   ]
 }
