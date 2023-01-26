@@ -8,7 +8,7 @@ import HamburgerIcon from '@/components/atoms/Icons/HamburgerIcons';
 import { NavLinkProp } from '@/components/atoms/NavLink';
 import { hiddenScroll } from '@/utils/scroll';
 import CloseIcon from '@/atoms/Icons/CloseIcons';
-import { Themes } from '@/utils/navUtils';
+import { Themes } from '@/constants';
 
 const Navbar = ({ topNavCategoryLinks }: { topNavCategoryLinks: Array<NavLinkProp> }) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -54,7 +54,7 @@ const Navbar = ({ topNavCategoryLinks }: { topNavCategoryLinks: Array<NavLinkPro
           <button
             type="button"
             aria-label="mobile navigation"
-            className="pl-3 inline-flex w-20 w-20 items-center justify-center p-2 focus:outline-none"
+            className="pl-3 inline-flex w-20 items-center justify-center p-2 focus:outline-none"
             onClick={toggleIsOpen}
           >
             {isOpen ? <CloseIcon fill={iconFill} /> : <HamburgerIcon fill={iconFill} />}

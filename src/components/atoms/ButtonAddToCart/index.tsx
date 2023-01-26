@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ProductResult } from '@uniformdev/canvas-bigcommerce';
 import ActionButton, { ActionButtonProps } from '@/components/atoms/ActionButton';
 import { useCartContext } from '@/context/CartProvider';
 
@@ -9,7 +8,7 @@ enum ButtonStates {
 }
 
 export type ButtonAddToCartProps = {
-  product: ProductResult;
+  product: Type.Product;
   quantity?: number;
 };
 
@@ -20,8 +19,7 @@ const ButtonAddToCart = ({
 }: React.HTMLProps<HTMLButtonElement> & ActionButtonProps & ButtonAddToCartProps) => {
   const { add, setModalOpen } = useCartContext();
   const [buttonState, setButtonState] = useState<ButtonStates>(ButtonStates.Initial);
-  const { id, variants } = product;
-  const variantId = variants ? variants[0]?.id ?? 0 : 0;
+  const { id, variantId } = product;
 
   const handleClick = () => {
     if (buttonState === ButtonStates.Initial) {

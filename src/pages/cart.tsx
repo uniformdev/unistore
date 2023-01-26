@@ -1,6 +1,6 @@
 import React from 'react';
 import type { GetStaticProps, NextPage } from 'next';
-import { getTopNavCategoryLinks } from '@/utils/navUtils';
+import { getTopNavCategoryLinks } from '@/utils/commerce';
 import Navbar from '@/components/Navigation/Header';
 import Footer from '@/components/Navigation/Footer';
 import ShoppingCart from '@/components/ShoppingCart';

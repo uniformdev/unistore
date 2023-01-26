@@ -1,11 +1,10 @@
 import React from 'react';
-import { ProductResult } from '@uniformdev/canvas-bigcommerce';
 import Carousel from '@/components/Carousel';
 import ProductItem from '@/components/ProductItem';
 
 export type RelatedProductsProps = {
   title: string;
-  relatedProducts?: ProductResult[];
+  relatedProducts?: Type.Product[];
 };
 
 const RelatedProducts = ({ title, relatedProducts }: RelatedProductsProps) => (
@@ -19,7 +18,7 @@ const RelatedProducts = ({ title, relatedProducts }: RelatedProductsProps) => (
     {relatedProducts && (
       <div>
         <Carousel>
-          {relatedProducts.map((i: ProductResult) => (
+          {relatedProducts.map((i: Type.Product) => (
             <div key={`featured-product-${i.id}`} className="px-1">
               <ProductItem product={i} />
             </div>

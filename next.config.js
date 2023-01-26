@@ -1,7 +1,4 @@
 const path = require('path');
-const createNextPluginPreval = require('next-plugin-preval/config');
-
-const withNextPluginPreval = createNextPluginPreval();
 
 const config = {
   reactStrictMode: true,
@@ -22,14 +19,15 @@ const config = {
     bcCategoryLimit: process.env.BIGCOMMERCE_CATEGORIES_LIMIT || 4,
     projectId: process.env.UNIFORM_PROJECT_ID,
     apiKey: process.env.UNIFORM_API_KEY,
-    apiHost: process.env.UNIFORM_CLI_BASE_URL || 'https://uniform.app',
+    apiHost: process.env.UNIFORM_CLI_BASE_URL,
     previewSecret: process.env.UNIFORM_PREVIEW_SECRET || 'unistore',
     outputType: process.env.UNIFORM_OUTPUT_TYPE || 'standard',
   },
   swcMinify: false,
   publicRuntimeConfig: {
     projectId: process.env.UNIFORM_PROJECT_ID,
+    commerceProxyURL: process.env.COMMERCE_PROXY_URL,
   },
 };
 
-module.exports = withNextPluginPreval(config);
+module.exports = config;

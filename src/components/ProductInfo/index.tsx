@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { ProductResult } from '@uniformdev/canvas-bigcommerce';
 import { useCartContext } from '@/context/CartProvider';
 import CurrencyFormatter from '@/components/CurrencyFormatter';
 import ButtonAddToCart from '@/components/atoms/ButtonAddToCart';
 
 export type ProductInfoProps = {
-  product?: ProductResult;
+  product?: Type.Product;
 };
 
 const ProductInfo = ({ product }: ProductInfoProps) => {
@@ -14,21 +13,16 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
   const [quantity, setQuantity] = useState(1);
 
   if (!product) return null;
-  const { id, variants } = product;
-  if (!variants || !id || !variants) {
-    return null;
-  }
-
   return (
     <div className="md:pt-8 pt-4 lg:w-2/3">
       <p className="font-overpass font-bold dark:text-white text-black text-4xl lg:text-5xl">{product.name}</p>
       <div className="flex flex-row w-28 justify-between mt-8 leading-5 font-overpass text-black text-2xl">
         <CurrencyFormatter
           currency={currency.code}
-          amount={product.sale_price && product.sale_price !== 0 ? product.sale_price : product.price}
+          amount={product.salePrice && product.salePrice !== 0 ? product.salePrice : product.price}
           className="dark:text-white"
         />
-        {product.sale_price && product.sale_price !== 0 ? (
+        {product.salePrice && product.salePrice !== 0 && (
           <>
             &nbsp;&nbsp;&nbsp;
             <CurrencyFormatter
@@ -37,7 +31,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
               amount={product.price}
             />
           </>
-        ) : null}
+        )}
       </div>
       <div className="border-mercury border-t-2 my-7" />
       <p className="font-overpass dark:text-white text-black text-base leading-3">

@@ -6,7 +6,7 @@ import CurrencyFormatter from '@/components/CurrencyFormatter';
 import ActionButton from '@/components/atoms/ActionButton';
 import EmptyContent from '@/atoms/EmptyContent';
 import ShoppingCartItem from './ShoppingCartItem';
-import { Themes } from '@/utils/navUtils';
+import { Themes } from '@/constants';
 
 const ShoppingCart: NextPage = () => {
   const { cart, currency } = useCartContext();
@@ -48,6 +48,7 @@ const ShoppingCart: NextPage = () => {
                 <form action={redirectUrls?.checkout_url} method="post" encType="multipart/form-data" target="_blank">
                   <ActionButton
                     type="submit"
+                    disabled={!redirectUrls?.checkout_url}
                     className="border-4 border-orange_border mt-5 h-10 w-52 lg:mb-32 dark:text-white"
                   >
                     <span className="dark:text-white text-black font-bold text-sm">Proceed to Checkout</span>

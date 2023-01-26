@@ -60,7 +60,6 @@
     "cookie": "^0.4.1",
     "lodash": "^4.17.21",
     "next": "^12.2.5",
-    "next-plugin-preval": "^1.2.4",
     "next-themes": "0.0.15",
     "p-limit": "^3.1.0",
     "p-retry": "^4.6.1",

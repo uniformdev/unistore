@@ -1,6 +1,14 @@
-import { CanvasClient, CANVAS_PUBLISHED_STATE, CANVAS_DRAFT_STATE, enhance, EnhancerBuilder } from '@uniformdev/canvas';
+import {
+  compose,
+  CanvasClient,
+  CANVAS_PUBLISHED_STATE,
+  CANVAS_DRAFT_STATE,
+  enhance,
+  EnhancerBuilder,
+} from '@uniformdev/canvas';
 import { CANVAS_BIGCOMMERCE_PARAMETER_TYPES } from '@uniformdev/canvas-bigcommerce';
 import { bigCommerceEnhancer, createCategoriesBrandsEnhancers } from '@/utils/enhancers';
+import { convertCommerceModel } from '@/utils/commerce';
 import getConfig from 'next/config';
 
 const {
@@ -23,7 +31,10 @@ export async function getCompositionBySlug(slug: string, context: any) {
   await enhance({
     composition,
     context,
-    enhancers: new EnhancerBuilder().parameterType(CANVAS_BIGCOMMERCE_PARAMETER_TYPES, bigCommerceEnhancer),
+    enhancers: new EnhancerBuilder().parameterType(
+      CANVAS_BIGCOMMERCE_PARAMETER_TYPES,
+      compose(bigCommerceEnhancer, convertCommerceModel)
+    ),
   });
 
   // TODO: review this approach

@@ -1,12 +1,10 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import { enhance, RootComponentInstance } from '@uniformdev/canvas';
-import { CategoryResult } from '@uniformdev/canvas-bigcommerce';
 import { createCategoriesBrandsEnhancers } from '@/utils/enhancers';
-import { getTopNavCategoryLinks } from '@/utils/navUtils';
-import { getCompositionBySlug } from '@/utils/canvasClient';
+import { getCompositionBySlug } from '@/utils/canvas';
 import { sluggify } from '@/utils/stringUtils';
-import { getBrands, getCategories } from '@/utils/bigCommerce';
+import { getBrands, getCategories, getTopNavCategoryLinks } from '@/utils/commerce';
 import { NavLinkProp } from '@/components/atoms/NavLink';
 import CommonPageContainer from '@/components/containers/CommonContainer';
 
@@ -18,10 +16,7 @@ const ShopCategoryBrand: NextPage<{
 
 export const getStaticPaths = async () => {
   const brands = await getBrands();
-  const categories: Array<CategoryResult> = (await getCategories()) || [];
-  // add known "shop all" category
-  const shopAll: CategoryResult = { id: 23, name: 'Shop All', url: '/shop-all/', children: [] };
-  categories.push(shopAll);
+  const categories: Array<Category.CategoryShort> = (await getCategories()) || [];
 
   if (!brands || !categories) {
     return {

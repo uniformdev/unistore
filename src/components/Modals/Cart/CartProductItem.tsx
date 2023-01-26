@@ -23,7 +23,7 @@ const CartProductItem: React.FC<CartLineItem> = ({
   const [isProductUpdate, setProductUpdate] = useState(false);
   const removeFromCart = async () => {
     setProductUpdate(true);
-    await remove(id);
+    await remove(id, { product_id: productId, variant_id: variantId });
     setProductUpdate(false);
   };
 

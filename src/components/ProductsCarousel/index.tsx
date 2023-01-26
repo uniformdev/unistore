@@ -1,5 +1,4 @@
 import React from 'react';
-import { ProductResult } from '@uniformdev/canvas-bigcommerce';
 import ProductItem from '@/components/ProductItem';
 import Carousel from '@/components/Carousel';
 import LinkButton from '../atoms/LinkButton';
@@ -8,7 +7,7 @@ export type ProductsCarouselProps = {
   title: string;
   seeMoreTitle: string;
   seeMoreUrl: string;
-  products: ProductResult[];
+  products: Type.Product[];
 };
 
 const ProductsCarousel = ({ title, products, seeMoreTitle, seeMoreUrl }: ProductsCarouselProps) => (
