@@ -1,6 +1,6 @@
-import { CanvasClient, CANVAS_PUBLISHED_STATE, CANVAS_DRAFT_STATE, enhance, EnhancerBuilder } from '@uniformdev/canvas';
-import { CANVAS_BIGCOMMERCE_PARAMETER_TYPES } from '@uniformdev/canvas-bigcommerce';
-import { bigCommerceEnhancer, createCategoriesBrandsEnhancers } from '@/utils/enhancers';
+import runEnhancers from '@/utils/enhancers/runEnhancers';
+import { CanvasClient, CANVAS_PUBLISHED_STATE, CANVAS_DRAFT_STATE } from '@uniformdev/canvas';
+
 import getConfig from 'next/config';
 
 const {
@@ -20,16 +20,7 @@ export async function getCompositionBySlug(slug: string, context: any) {
     state: getState(preview),
   });
 
-  await enhance({
-    composition,
-    context,
-    enhancers: new EnhancerBuilder().parameterType(CANVAS_BIGCOMMERCE_PARAMETER_TYPES, bigCommerceEnhancer),
-  });
-
-  // TODO: review this approach
-  if (slug === 'product-category') {
-    await enhance({ composition, enhancers: createCategoriesBrandsEnhancers(), context: { preview } });
-  }
+  await runEnhancers(composition, context, slug);
 
   return composition;
 }

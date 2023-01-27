@@ -1,18 +1,7 @@
-import useLivePreviewNextStaticProps from '../useLivePreviewNextStaticProps';
-import getConfig from 'next/config';
-import PreviewSwitch from './PreviewSwitch/PreviewSwitch';
 import { RootComponentInstance } from '@uniformdev/canvas';
+import PreviewSwitch from './PreviewSwitch/PreviewSwitch';
 
-function PreviewEnabler({ preview, composition }: { preview?: boolean; composition: RootComponentInstance }) {
-  const {
-    publicRuntimeConfig: { projectId },
-  } = getConfig();
-
-  useLivePreviewNextStaticProps({
-    compositionId: composition?._id,
-    projectId: projectId,
-  });
-
+function PreviewEnabler({ preview }: { preview?: boolean; composition: RootComponentInstance }) {
   return preview ? <PreviewSwitch previewing={preview} /> : null;
 }
 

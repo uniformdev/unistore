@@ -16,14 +16,20 @@ export const getStaticProps: GetStaticProps<{
   composition: RootComponentInstance;
   topNavCategoryLinks: Array<NavLinkProp>;
 }> = async context => {
-  const slug = context?.params?.id as string;
   const { preview } = context;
+  const { slug } = context?.params || {};
+  const slugString = Array.isArray(slug) ? slug.join('/') : slug;
+  let slashedSlug = slugString as string;
+  if (!slugString) {
+    slashedSlug = '/';
+  }
   return {
     props: {
-      composition: await getCompositionBySlug(slug, context),
+      composition: await getCompositionBySlug(slashedSlug, context),
       topNavCategoryLinks: (await getTopNavCategoryLinks()) as Array<NavLinkProp>,
       preview: Boolean(preview),
     },
+    revalidate: 2,
   };
 };
 

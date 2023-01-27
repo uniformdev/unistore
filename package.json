@@ -51,6 +51,7 @@
     "@uniformdev/canvas": "^18.2.2",
     "@uniformdev/canvas-bigcommerce": "^18.2.2",
     "@uniformdev/canvas-react": "^18.2.2",
+    "@uniformdev/canvas-next": "^18.2.2",
     "@uniformdev/cli": "^18.2.2",
     "@uniformdev/context": "^18.2.2",
     "@uniformdev/context-devtools": "^18.2.2",
